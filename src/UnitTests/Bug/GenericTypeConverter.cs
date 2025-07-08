@@ -19,7 +19,7 @@ public class GenericTypeConverterWithTwoArguments : AutoMapperSpecBase
 
     public class Converter<TSource, TDestination> : ITypeConverter<List<TSource>, List<TDestination>>
     {
-        public static readonly List<TDestination> Result = new List<TDestination>();
+        public static readonly List<TDestination> Result = [];
 
         public List<TDestination> Convert(List<TSource> source, List<TDestination> destination, ResolutionContext context)
         {

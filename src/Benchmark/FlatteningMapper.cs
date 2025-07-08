@@ -69,11 +69,11 @@ public class DeepTypeMapper : IObjectToObjectMapper
             Id = 1,
             Name = "Eduardo Najera",
             Credit = 234.7m,
-            WorkAddresses = new List<Address>()
-            {
+            WorkAddresses =
+            [
                 new Address() {City = "istanbul", Country = "turkey", Id = 5, Street = "istiklal cad."},
                 new Address() {City = "izmir", Country = "turkey", Id = 6, Street = "konak"}
-            },
+            ],
             Addresses = new List<Address>()
             {
                 new Address() {City = "istanbul", Country = "turkey", Id = 3, Street = "istiklal cad."},
@@ -132,11 +132,11 @@ public class ManualDeepTypeMapper : IObjectToObjectMapper
             Id = 1,
             Name = "Eduardo Najera",
             Credit = 234.7m,
-            WorkAddresses = new List<Address>()
-            {
+            WorkAddresses =
+            [
                 new Address() {City = "istanbul", Country = "turkey", Id = 5, Street = "istiklal cad."},
                 new Address() {City = "izmir", Country = "turkey", Id = 6, Street = "konak"}
-            },
+            ],
             Addresses = new List<Address>()
             {
                 new Address() {City = "istanbul", Country = "turkey", Id = 3, Street = "istiklal cad."},
@@ -163,7 +163,7 @@ public class ManualDeepTypeMapper : IObjectToObjectMapper
             dto.Addresses[i] = new AddressDTO() { Id = _customer.Addresses[i].Id, Country = _customer.Addresses[i].Country, City = _customer.Addresses[i].City };
         }
 
-        dto.WorkAddresses = new List<AddressDTO>();
+        dto.WorkAddresses = [];
         foreach (var workAddress in _customer.WorkAddresses)
         {
             dto.WorkAddresses.Add(new AddressDTO() { Id = workAddress.Id, Country = workAddress.Country, City = workAddress.City });
@@ -197,20 +197,20 @@ public class Foo
         DateTime = DateTime.Now,
         Doublen = 2312112,
         Foo1 = new InnerFoo { Name = "foo one" },
-        Foos = new List<InnerFoo>
-            {
-                new InnerFoo {Name = "j1", Int64 = 123, NullInt = 321},
-                new InnerFoo {Name = "j2", Int32 = 12345, NullInt = 54321},
-                new InnerFoo {Name = "j3", Int32 = 12345, NullInt = 54321},
-            },
-        FooArr = new[]
-            {
-                new InnerFoo {Name = "a1"},
+        Foos =
+        [
+            new InnerFoo {Name = "j1", Int64 = 123, NullInt = 321},
+            new InnerFoo {Name = "j2", Int32 = 12345, NullInt = 54321},
+            new InnerFoo {Name = "j3", Int32 = 12345, NullInt = 54321}
+        ],
+        FooArr =
+        [
+            new InnerFoo {Name = "a1"},
                 new InnerFoo {Name = "a2"},
-                new InnerFoo {Name = "a3"},
-            },
-        IntArr = new[] { 1, 2, 3, 4, 5 },
-        Ints = new[] { 7, 8, 9 },
+                new InnerFoo {Name = "a3"}
+        ],
+        IntArr = [1, 2, 3, 4, 5],
+        Ints = [7, 8, 9],
     };
 
     public string Name { get; set; }

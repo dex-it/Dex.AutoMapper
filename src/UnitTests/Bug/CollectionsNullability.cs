@@ -22,7 +22,7 @@ public class CollectionsNullability : AutoMapperSpecBase
 
     protected override void Because_of()
     {
-        var from = new Holder { Containers = new[] { new Container() } };
+        var from = new Holder { Containers = [new Container()]};
         _destination = Mapper.Map<Holder>(from);
     }
 

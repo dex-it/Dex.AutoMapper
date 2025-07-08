@@ -30,40 +30,40 @@ public class GenericCreateMapsWithCircularReference : AutoMapperSpecBase
         var result = Mapper.Map<UserPoco<int>>(user);
     }
 
-    public partial class Role<T>
+    public sealed partial class Role<T>
     {
         public Role()
         {
-            this.UsersInRoles = new List<UsersInRole<T>>();
+            UsersInRoles = new List<UsersInRole<T>>();
         }
-        public virtual IList<UsersInRole<T>> UsersInRoles { get; set; }
+        public IList<UsersInRole<T>> UsersInRoles { get; set; }
     }
 
-    public partial class RolePoco<T>
+    public sealed partial class RolePoco<T>
     {
         public RolePoco()
         {
-            this.UsersInRoles = new List<UsersInRolePoco<T>>();
+            UsersInRoles = new List<UsersInRolePoco<T>>();
         }
-        public virtual IList<UsersInRolePoco<T>> UsersInRoles { get; set; }
+        public IList<UsersInRolePoco<T>> UsersInRoles { get; set; }
     }
 
-    public partial class User<T>
+    public sealed partial class User<T>
     {
         public User()
         {
-            this.UsersInRoles = new List<UsersInRole<T>>();
+            UsersInRoles = new List<UsersInRole<T>>();
         }
-        public virtual IList<UsersInRole<T>> UsersInRoles { get; set; }
+        public IList<UsersInRole<T>> UsersInRoles { get; set; }
     }
 
-    public partial class UserPoco<T>
+    public sealed partial class UserPoco<T>
     {
         public UserPoco()
         {
-            this.UsersInRoles = new List<UsersInRolePoco<T>>();
+            UsersInRoles = new List<UsersInRolePoco<T>>();
         }
-        public virtual IList<UsersInRolePoco<T>> UsersInRoles { get; set; }
+        public IList<UsersInRolePoco<T>> UsersInRoles { get; set; }
     }
 
     public partial class UsersInRole<T>

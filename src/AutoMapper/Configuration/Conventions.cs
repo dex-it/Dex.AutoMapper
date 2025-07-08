@@ -111,7 +111,7 @@ public sealed class ReplaceName : ISourceToDestinationNameMapper
         return null;
     }
     public void Merge(ISourceToDestinationNameMapper other) => MemberNameReplacers.TryAdd(((ReplaceName)other).MemberNameReplacers);
-    private List<string> PossibleNames(string nameToSearch) => [..MemberNameReplacers.Select(r => nameToSearch.Replace(r.OriginalValue, r.NewValue)), 
+    private List<string> PossibleNames(string nameToSearch) => [..MemberNameReplacers.Select(r => nameToSearch.Replace(r.OriginalValue, r.NewValue)),
         MemberNameReplacers.Aggregate(nameToSearch, (s, r) => s.Replace(r.OriginalValue, r.NewValue)), nameToSearch];
 }
 [EditorBrowsable(EditorBrowsableState.Never)]

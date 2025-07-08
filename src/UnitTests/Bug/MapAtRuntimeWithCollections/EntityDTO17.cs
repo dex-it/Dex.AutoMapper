@@ -4,10 +4,10 @@ public class EntityDTO17 :BaseEntity
 {
     public EntityDTO17()
     {
-        this.Entities20 = new List<EntityDTO20>();
-        this.Entities8 = new List<EntityDTO8>();
-        this.Entities5 = new List<EntityDTO5>();
-        this.Entities18 = new List<EntityDTO18>();
+        Entities20 = new List<EntityDTO20>();
+        Entities8 = new List<EntityDTO8>();
+        Entities5 = new List<EntityDTO5>();
+        Entities18 = new List<EntityDTO18>();
     }
 
     public ICollection<EntityDTO20> Entities20 { get; set; }

@@ -189,8 +189,8 @@ public class MappingExpressionFeatureWithReverseTest
     public abstract class MappingExpressionFeatureBase : IMappingFeature
     {
         public int Value { get; }
-        public List<TypeMap> ConfigureTypeMaps { get; } = new List<TypeMap>();
-        public List<IMappingFeature> ReverseMaps { get; } = new List<IMappingFeature>();
+        public List<TypeMap> ConfigureTypeMaps { get; } = [];
+        public List<IMappingFeature> ReverseMaps { get; } = [];
 
         private readonly Func<IMappingFeature> _reverseMappingExpressionFeature;
 

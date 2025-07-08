@@ -20,7 +20,7 @@ public class When_specifying_mapping_with_the_BCL_type_converter_class : NonVali
         public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType) => 
             new Destination { OtherValue = ((Source)value).Value + 10 };
         public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType) => sourceType == typeof(Destination);
-        public override object ConvertFrom(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value) =>
+        public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value) =>
             new Source { Value = ((Destination)value).OtherValue - 10 };
     }
     [Fact]

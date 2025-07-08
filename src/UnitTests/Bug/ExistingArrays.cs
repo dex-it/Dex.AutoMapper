@@ -11,7 +11,7 @@ public class ExistingArrays : AutoMapperSpecBase
     [Fact]
     public void should_map_array_inside_object()
     {
-        var source = new Source { Values = new[] { "1", "2" } };
+        var source = new Source { Values = ["1", "2"]};
         var dest = Mapper.Map<Dest>(source);
     }
 
@@ -19,7 +19,7 @@ public class ExistingArrays : AutoMapperSpecBase
     [Fact]
     public void should_map_over_enumerable_empty()
     {
-        var source = new Source { Values = new[] { "1", "2" } };
+        var source = new Source { Values = ["1", "2"]};
         var dest = Mapper.Map<DestWithIEnumerableInitializer>(source);
     }
 
@@ -27,7 +27,7 @@ public class ExistingArrays : AutoMapperSpecBase
     {
         public Source()
         {
-            Values = new string[0];
+            Values = [];
         }
 
         public string[] Values { get; set; }
@@ -38,7 +38,7 @@ public class ExistingArrays : AutoMapperSpecBase
         public Dest()
         {
             // remove this line will get it fixed. 
-            Values = new string[0];
+            Values = [];
         }
 
         public string[] Values { get; set; }
@@ -49,7 +49,7 @@ public class ExistingArrays : AutoMapperSpecBase
         public DestWithIEnumerableInitializer()
         {
             // remove this line will get it fixed. 
-            Values = Enumerable.Empty<string>();
+            Values = [];
         }
 
         public IEnumerable<string> Values { get; set; }

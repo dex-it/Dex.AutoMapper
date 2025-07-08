@@ -37,7 +37,7 @@ public class ICollectionAggregateProjections : IntegrationTest<ICollectionAggreg
             {
                 FirstName = "Bob",
                 LastName = "Smith",
-                Items = new[] { new Item { Code = 1 }, new Item { Code = 3 }, new Item { Code = 5 } }
+                Items = [new Item { Code = 1 }, new Item { Code = 3 }, new Item { Code = 5 }]
             });
 
             base.Seed(context);

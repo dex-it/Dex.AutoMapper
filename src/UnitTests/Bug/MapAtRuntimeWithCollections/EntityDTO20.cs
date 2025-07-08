@@ -4,12 +4,12 @@ public class EntityDTO20 : BaseEntity
 {
     public EntityDTO20()
     {
-        this.Entities8 = new List<EntityDTO8>();
-        this.Entities26 = new List<EntityDTO26>();
-        this.Entities12 = new List<EntityDTO12>();
-        this.Entities17 = new List<EntityDTO17>();
-        this.Entities21 = new List<EntityDTO21>();
-        this.Entities16 = new List<EntityDTO16>();
+        Entities8 = new List<EntityDTO8>();
+        Entities26 = new List<EntityDTO26>();
+        Entities12 = new List<EntityDTO12>();
+        Entities17 = new List<EntityDTO17>();
+        Entities21 = new List<EntityDTO21>();
+        Entities16 = new List<EntityDTO16>();
     }
 
     public Guid Entity3Id { get; set; }

@@ -308,14 +308,14 @@ public class GenericValueResolver : AutoMapperSpecBase
     [Fact]
     public void Should_map_closed_to_ienumerable_generic_destination()
     {
-        var source = new Source { MyValues = new int[] { 1, 2 } };
+        var source = new Source { MyValues = [1, 2]};
         var destination = Map<Destination<int>>(source);
         destination.MyValues.ShouldBe(source.MyValues);
     }
     [Fact]
     public void Should_map_ienumerable_generic_destination()
     {
-        var source = new Source<int> { MyValues = new int[] { 1, 2 } };
+        var source = new Source<int> { MyValues = [1, 2]};
         var destination = Map<Destination<int>>(source);
         destination.MyValues.ShouldBe(source.MyValues);
     }
@@ -407,7 +407,7 @@ public class RecursiveOpenGenerics : AutoMapperSpecBase
     [Fact]
     public void Should_work()
     {
-        var source = new SourceTree<string>("value", new SourceTree<string>[0]);
+        var source = new SourceTree<string>("value", []);
         Mapper.Map<DestinationTree<string>>(source).Value.ShouldBe("value");
     }
 }

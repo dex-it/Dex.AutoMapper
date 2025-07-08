@@ -26,13 +26,13 @@ public class CollectionMapperMapsIEnumerableToISetIncorrectly
 
         var source = new SourceWithIEnumerable
         {
-            Stuff = new[]
-                        {
-                            new TypeWithStringProperty { Value = "Microphone" }, 
+            Stuff =
+            [
+                new TypeWithStringProperty { Value = "Microphone" }, 
                             new TypeWithStringProperty { Value = "Check" }, 
                             new TypeWithStringProperty { Value = "1, 2" }, 
                             new TypeWithStringProperty { Value = "What is this?" }
-                        }
+            ]
         };
 
         var target = config.CreateMapper().Map<SourceWithIEnumerable, TargetWithISet>(source);

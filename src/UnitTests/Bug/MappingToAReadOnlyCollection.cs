@@ -25,8 +25,8 @@ public class MappingToAReadOnlyCollection : AutoMapperSpecBase
     {
         var source = new Source
                          {
-                             Values = new[] {1, 2, 3, 4},
-                             Values2 = new[] {5, 6},
+                             Values = [1, 2, 3, 4],
+                             Values2 = [5, 6],
                          };
         _destination = Mapper.Map<Source, Destination>(source);
     }

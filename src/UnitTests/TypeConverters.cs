@@ -215,7 +215,7 @@ public class When_specifying_type_converters : AutoMapperSpecBase
 
     protected override MapperConfiguration CreateConfiguration() => new(cfg =>
     {
-        cfg.CreateMap<string, int>().ConvertUsing((string arg) => System.Convert.ToInt32(arg));
+        cfg.CreateMap<string, int>().ConvertUsing((string arg) => Convert.ToInt32(arg));
         cfg.CreateMap<string, DateTime>().ConvertUsing(new DateTimeTypeConverter());
         cfg.CreateMap<string, Type>().ConvertUsing<TypeTypeConverter>();
         cfg.CreateMap<Source, Destination>();
@@ -279,7 +279,7 @@ public class When_specifying_type_converters_on_types_with_incompatible_members 
 
     protected override MapperConfiguration CreateConfiguration() => new(cfg =>
     {
-        cfg.CreateMap<Source, Destination>().ConvertUsing(arg => new Destination {Type = System.Convert.ToInt32(arg.Foo)});
+        cfg.CreateMap<Source, Destination>().ConvertUsing(arg => new Destination {Type = Convert.ToInt32(arg.Foo)});
         cfg.CreateMap<ParentSource, ParentDestination>();
 
     });

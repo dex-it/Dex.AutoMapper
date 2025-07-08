@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Collection updating support for EntityFrameworkCore with AutoMapper. Extends DBSet&lt;T&gt; with Persist&lt;TDto&gt;().InsertUpdate(dto) and Persist&lt;TDto&gt;().Delete(dto).  Will find the matching object and will Insert/Update/Delete.</Description>
+    <Authors>Tyler Carlson</Authors>
+    <TargetFramework>net9.0</TargetFramework>
+    <AssemblyName>AutoMapper.Collection.EntityFrameworkCore</AssemblyName>
+    <PackageId>AutoMapper.Collection.EntityFrameworkCore</PackageId>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/AutoMapper/Automapper.Collection.EFCore</PackageProjectUrl>
+    <AssemblyOriginatorKeyFile>../Key.snk</AssemblyOriginatorKeyFile>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <SignAssembly>true</SignAssembly>
+    <IncludeSymbols>true</IncludeSymbols>
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\icon.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Roslynator.Analyzers" Version="2.3.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MinVer" Version="2.3.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Dex.AutoMapper.Collection\src\AutoMapper.Collection\AutoMapper.Collection.csproj" />
+    <ProjectReference Include="..\..\..\Dex.AutoMapper.Extensions.ExpressionMapping\src\AutoMapper.Extensions.ExpressionMapping\AutoMapper.Extensions.ExpressionMapping.csproj" />
+    <ProjectReference Include="..\..\..\src\AutoMapper\AutoMapper.csproj" />
+  </ItemGroup>
+
+</Project>

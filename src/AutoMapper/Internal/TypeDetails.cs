@@ -12,7 +12,7 @@ public sealed class TypeDetails(Type type, ProfileMap config)
     private ConstructorParameters[] _constructors;
     private MemberInfo[] _readAccessors;
     private MemberInfo[] _writeAccessors;
-    private ConstructorParameters[] GetConstructors() => 
+    private ConstructorParameters[] GetConstructors() =>
         GetConstructors(Type, Config).Where(c=>c.ParametersCount > 0).OrderByDescending(c => c.ParametersCount).ToArray();
     public static IEnumerable<ConstructorParameters> GetConstructors(Type type, ProfileMap profileMap) =>
         type.GetDeclaredConstructors().Where(profileMap.ShouldUseConstructor).Select(c => new ConstructorParameters(c));
@@ -48,7 +48,7 @@ public sealed class TypeDetails(Type type, ProfileMap config)
         IEnumerable<MemberInfo> AddMethods(IEnumerable<MemberInfo> accessors)
         {
             var publicNoArgMethods = GetPublicNoArgMethods();
-            var noArgExtensionMethods = GetNoArgExtensionMethods(Config.SourceExtensionMethods.Where(m => 
+            var noArgExtensionMethods = GetNoArgExtensionMethods(Config.SourceExtensionMethods.Where(m =>
                 !_nameToMember.ContainsKey(m.Name) && Config.ShouldMapMethod(m)));
             return accessors.Concat(publicNoArgMethods).Concat(noArgExtensionMethods);
         }

@@ -245,7 +245,7 @@ public class MappingExpressionFeatureWithoutReverseTest
     public abstract class MappingExpressionFeatureBase : IMappingFeature
     {
         public int Value { get; }
-        public List<TypeMap> ConfigureTypeMaps { get; } = new List<TypeMap>();
+        public List<TypeMap> ConfigureTypeMaps { get; } = [];
         public int ReverseExecutedCount { get; private set; }
 
         protected MappingExpressionFeatureBase(int value)

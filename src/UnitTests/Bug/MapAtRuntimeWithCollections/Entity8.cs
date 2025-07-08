@@ -4,11 +4,11 @@ public class Entity8 : BaseEntity
 {
     public Entity8()
     {
-        this.Entities20 = new List<Entity20>();
-        this.Entities22 = new List<Entity22>();
-        this.Entities3 = new List<Entity3>();
-        this.Entities11 = new List<Entity11>();
-        this.Entities17 = new List<Entity17>();
+        Entities20 = new List<Entity20>();
+        Entities22 = new List<Entity22>();
+        Entities3 = new List<Entity3>();
+        Entities11 = new List<Entity11>();
+        Entities17 = new List<Entity17>();
     }
 
     public ICollection<Entity20> Entities20 { get; set; }

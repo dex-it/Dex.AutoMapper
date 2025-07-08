@@ -39,15 +39,15 @@ public class MultipleLevelsSubquery : IntegrationTest<MultipleLevelsSubquery.Dat
         public int BarId { get; set; }
         public virtual Bar Bar { get; set; }
     }
-    public class Bar
+    public sealed class Bar
     {
         public Bar() => Foos = new HashSet<Foo>();
         public int Id { get; set; }
         public int BazId { get; set; }
-        public virtual Baz Baz { get; set; }
-        public virtual ICollection<Foo> Foos { get; set; }
+        public Baz Baz { get; set; }
+        public ICollection<Foo> Foos { get; set; }
     }
-    public class Baz
+    public sealed class Baz
     {
         public Baz()
         {
@@ -55,8 +55,8 @@ public class MultipleLevelsSubquery : IntegrationTest<MultipleLevelsSubquery.Dat
             Widgets = new HashSet<Widget>();
         }
         public int Id { get; set; }
-        public virtual ICollection<Bar> Bars { get; set; }
-        public virtual ICollection<Widget> Widgets { get; set; }
+        public ICollection<Bar> Bars { get; set; }
+        public ICollection<Widget> Widgets { get; set; }
     }
     public partial class Widget
     {
@@ -129,7 +129,7 @@ public class MemberWithSubQueryProjections : IntegrationTest<MemberWithSubQueryP
             {
                 FirstName = "Bob",
                 LastName = "Smith",
-                Items = new[] { new Item { Code = 1 }, new Item { Code = 3 }, new Item { Code = 5 } }
+                Items = [new Item { Code = 1 }, new Item { Code = 3 }, new Item { Code = 5 }]
             });
             base.Seed(context);
         }
@@ -193,7 +193,7 @@ public class MemberWithSubQueryProjectionsNoMap : IntegrationTest<MemberWithSubQ
             {
                 FirstName = "Bob",
                 LastName = "Smith",
-                Items = new[] { new Item { Code = 1 }, new Item { Code = 3 }, new Item { Code = 5 } }
+                Items = [new Item { Code = 1 }, new Item { Code = 3 }, new Item { Code = 5 }]
             });
             base.Seed(context);
         }
@@ -318,7 +318,7 @@ public class MapObjectPropertyFromSubQueryTypeNameMax : IntegrationTest<MapObjec
     {
         protected override void Seed(ClientContext context)
         {
-            context.Products.Add(new Product { ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
+            context.Products.Add(new Product { ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }]});
         }
     }
 
@@ -406,7 +406,7 @@ public class MapObjectPropertyFromSubQueryExplicitExpansion : IntegrationTest<Ma
     {
         protected override void Seed(ClientContext context)
         {
-            context.Products.Add(new Product { ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
+            context.Products.Add(new Product { ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }]});
         }
     }
 
@@ -495,7 +495,7 @@ public class MapObjectPropertyFromSubQuery : IntegrationTest<MapObjectPropertyFr
     {
         protected override void Seed(ClientContext context)
         {
-            context.Products.Add(new Product { ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
+            context.Products.Add(new Product { ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }]});
         }
     }
 
@@ -587,8 +587,12 @@ public class MapObjectPropertyFromSubQueryWithInnerObject : IntegrationTest<MapO
     {
         protected override void Seed(ClientContext context)
         {
-            var product1 = context.Products.Add(new Product { ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
-            var product2 = context.Products.Add(new Product { ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 2 } } });
+            var product1 = context.Products.Add(new Product { ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }
+                ]
+            });
+            var product2 = context.Products.Add(new Product { ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 2 }
+                ]
+            });
             context.ProductArticles.Add(new ProductArticle { Product = product1.Entity, OtherProduct = product2.Entity });
         }
     }
@@ -688,8 +692,10 @@ public class MapObjectPropertyFromSubQueryWithCollection : IntegrationTest<MapOb
     {
         protected override void Seed(ClientContext context)
         {
-            var product = context.Products.Add(new Product { ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
-            context.ProductArticles.Add(new ProductArticle { Products = new[] { product.Entity } });
+            var product = context.Products.Add(new Product { ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }
+                ]
+            });
+            context.ProductArticles.Add(new ProductArticle { Products = [product.Entity]});
         }
     }
 
@@ -805,8 +811,10 @@ public class MapObjectPropertyFromSubQueryWithCollectionSameName : NonValidating
     {
         protected override void Seed(ClientContext context)
         {
-            var product = context.Products.Add(new Product { ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
-            context.ProductArticles.Add(new ProductArticle { Products = new[] { product.Entity } });
+            var product = context.Products.Add(new Product { ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }
+                ]
+            });
+            context.ProductArticles.Add(new ProductArticle { Products = [product.Entity]});
         }
     }
 
@@ -815,14 +823,14 @@ public class MapObjectPropertyFromSubQueryWithCollectionSameName : NonValidating
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductArticle> ProductArticles { get; set; }
     }
-    public async Task InitializeAsync()
+    public async ValueTask InitializeAsync()
     {
         var initializer = new DatabaseInitializer();
 
         await initializer.Migrate();
     }
 
-    public Task DisposeAsync() => Task.CompletedTask;
+    public ValueTask DisposeAsync() => ValueTask.CompletedTask;
 }
 
 public class SubQueryWithMapFromNullable : IntegrationTest<SubQueryWithMapFromNullable.DatabaseInitializer>
@@ -947,7 +955,7 @@ public class MapObjectPropertyFromSubQueryCustomSource : IntegrationTest<MapObje
     public class Brand
     {
         public int Id { get; set; }
-        public List<Owner> Owners { get; set; } = new List<Owner>();
+        public List<Owner> Owners { get; set; } = [];
     }
     public class Product
     {
@@ -1145,15 +1153,15 @@ public class MultipleLevelsSubqueryWithInheritance : IntegrationTest<MultipleLev
         public int BarId { get; set; }
         public virtual Bar Bar { get; set; }
     }
-    public class Bar
+    public sealed class Bar
     {
         public Bar() => Foos = new HashSet<Foo>();
         public int Id { get; set; }
         public int BazId { get; set; }
-        public virtual Baz Baz { get; set; }
-        public virtual ICollection<Foo> Foos { get; set; }
+        public Baz Baz { get; set; }
+        public ICollection<Foo> Foos { get; set; }
     }
-    public class Baz
+    public sealed class Baz
     {
         public Baz()
         {
@@ -1161,8 +1169,8 @@ public class MultipleLevelsSubqueryWithInheritance : IntegrationTest<MultipleLev
             Widgets = new HashSet<Widget>();
         }
         public int Id { get; set; }
-        public virtual ICollection<Bar> Bars { get; set; }
-        public virtual ICollection<Widget> Widgets { get; set; }
+        public ICollection<Bar> Bars { get; set; }
+        public ICollection<Widget> Widgets { get; set; }
     }
     public partial class Widget
     {
@@ -1266,19 +1274,19 @@ public class MemberWithSubQueryProjectionsWithInheritance : IntegrationTest<Memb
             {
                 FirstName = "Alice",
                 LastName = "Smith",
-                Items = new[] { new Item { Code = 1 }, new ItemA { Code = 3, A = "a", }, new Item { Code = 5 } }
+                Items = [new Item { Code = 1 }, new ItemA { Code = 3, A = "a", }, new Item { Code = 5 }]
             });
             context.Customers.Add(new CustomerB
             {
                 FirstName = "Bob",
                 LastName = "Smith",
                 B = "b",
-                Items = new[] { new Item { Code = 1 }, new Item { Code = 3 }, new Item { Code = 5 } }
+                Items = [new Item { Code = 1 }, new Item { Code = 3 }, new Item { Code = 5 }]
             }); context.Customers.Add(new Customer
             {
                 FirstName = "Jim",
                 LastName = "Smith",
-                Items = new[] { new Item { Code = 1 }, new Item { Code = 3 }, new Item { Code = 5 } }
+                Items = [new Item { Code = 1 }, new Item { Code = 3 }, new Item { Code = 5 }]
             });
             base.Seed(context);
         }
@@ -1388,19 +1396,19 @@ public class MemberWithSubQueryProjectionsNoMapWithInheritance : IntegrationTest
                 FirstName = "Alice",
                 LastName = "Smith",
                 A = "a",
-                Items = new[] { new Item { Code = 1 }, new Item { Code = 3 }, new Item { Code = 5 } }
+                Items = [new Item { Code = 1 }, new Item { Code = 3 }, new Item { Code = 5 }]
             });
             context.Customers.Add(new CustomerB
             {
                 FirstName = "Bob",
                 LastName = "Smith",
                 B = "b",
-                Items = new[] { new Item { Code = 1 }, new Item { Code = 3 }, new Item { Code = 5 } }
+                Items = [new Item { Code = 1 }, new Item { Code = 3 }, new Item { Code = 5 }]
             }); context.Customers.Add(new Customer
             {
                 FirstName = "Jim",
                 LastName = "Smith",
-                Items = new[] { new Item { Code = 1 }, new Item { Code = 3 }, new Item { Code = 5 } }
+                Items = [new Item { Code = 1 }, new Item { Code = 3 }, new Item { Code = 5 }]
             });
             base.Seed(context);
         }
@@ -1574,9 +1582,15 @@ public class MapObjectPropertyFromSubQueryTypeNameMaxWithInheritance : Integrati
     {
         protected override void Seed(ClientContext context)
         {
-            context.Products.Add(new ProductA { Name = "P1", A = "a", ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
-            context.Products.Add(new ProductB { Name = "P2", B = "b", ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
-            context.Products.Add(new Product { Name = "P3", ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
+            context.Products.Add(new ProductA { Name = "P1", A = "a", ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }
+                ]
+            });
+            context.Products.Add(new ProductB { Name = "P2", B = "b", ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }
+                ]
+            });
+            context.Products.Add(new Product { Name = "P3", ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }
+                ]
+            });
         }
     }
 
@@ -1706,9 +1720,15 @@ public class MapObjectPropertyFromSubQueryExplicitExpansionWithInheritance : Int
     {
         protected override void Seed(ClientContext context)
         {
-            context.Products.Add(new ProductA { ECommercePublished = true, Name = "P1", A = "a", Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
-            context.Products.Add(new ProductB { ECommercePublished = true, Name = "P2", B = "b", Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
-            context.Products.Add(new Product { ECommercePublished = true, Name = "P3", Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
+            context.Products.Add(new ProductA { ECommercePublished = true, Name = "P1", A = "a", Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }
+                ]
+            });
+            context.Products.Add(new ProductB { ECommercePublished = true, Name = "P2", B = "b", Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }
+                ]
+            });
+            context.Products.Add(new Product { ECommercePublished = true, Name = "P3", Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }
+                ]
+            });
         }
     }
 
@@ -1836,9 +1856,15 @@ public class MapObjectPropertyFromSubQueryWithInheritance : IntegrationTest<MapO
     {
         protected override void Seed(ClientContext context)
         {
-            context.Products.Add(new ProductA { Name = "P1", A = "a", ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
-            context.Products.Add(new ProductB { Name = "P2", B = "b", ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
-            context.Products.Add(new Product { Name = "P3", ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
+            context.Products.Add(new ProductA { Name = "P1", A = "a", ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }
+                ]
+            });
+            context.Products.Add(new ProductB { Name = "P2", B = "b", ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }
+                ]
+            });
+            context.Products.Add(new Product { Name = "P3", ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }
+                ]
+            });
         }
     }
 
@@ -1979,16 +2005,28 @@ public class MapObjectPropertyFromSubQueryWithInnerObjectWithInheritance : Integ
     {
         protected override void Seed(ClientContext context)
         {
-            var product1 = context.Products.Add(new Product { ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
-            var product2 = context.Products.Add(new Product { ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 2, ProductId = 2 } } });
+            var product1 = context.Products.Add(new Product { ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }
+                ]
+            });
+            var product2 = context.Products.Add(new Product { ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 2, ProductId = 2 }
+                ]
+            });
             context.ProductArticles.Add(new ProductArticleA { A = "a", Name = "P1", Product = product1.Entity, OtherProduct = product2.Entity });
 
-            var product3 = context.Products.Add(new Product { ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 3, ProductId = 1 } } });
-            var product4 = context.Products.Add(new Product { ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 4, ProductId = 2 } } });
+            var product3 = context.Products.Add(new Product { ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 3, ProductId = 1 }
+                ]
+            });
+            var product4 = context.Products.Add(new Product { ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 4, ProductId = 2 }
+                ]
+            });
             context.ProductArticles.Add(new ProductArticleB { B = "b", Name = "P2", Product = product3.Entity, OtherProduct = product4.Entity });
 
-            var product5 = context.Products.Add(new Product { ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 5, ProductId = 1 } } });
-            var product6 = context.Products.Add(new Product { ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 6, ProductId = 2 } } });
+            var product5 = context.Products.Add(new Product { ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 5, ProductId = 1 }
+                ]
+            });
+            var product6 = context.Products.Add(new Product { ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 6, ProductId = 2 }
+                ]
+            });
             context.ProductArticles.Add(new ProductArticle { Name = "P3", Product = product5.Entity, OtherProduct = product6.Entity });
         }
     }
@@ -2119,14 +2157,16 @@ public class MapObjectPropertyFromSubQueryWithCollectionWithInheritance : Integr
     {
         protected override void Seed(ClientContext context)
         {
-            var product = context.Products.Add(new Product { ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
-            context.ProductArticles.Add(new ProductArticleA { Name = "P1", A = "a", Products = new[] { product.Entity } });
+            var product = context.Products.Add(new Product { ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }
+                ]
+            });
+            context.ProductArticles.Add(new ProductArticleA { Name = "P1", A = "a", Products = [product.Entity]});
 
-            product = context.Products.Add(new Product { ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
-            context.ProductArticles.Add(new ProductArticleB { Name = "P2", B = "b", Products = new[] { product.Entity } });
+            product = context.Products.Add(new Product { ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }]});
+            context.ProductArticles.Add(new ProductArticleB { Name = "P2", B = "b", Products = [product.Entity]});
 
-            product = context.Products.Add(new Product { ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
-            context.ProductArticles.Add(new ProductArticle { Name = "P3", Products = new[] { product.Entity } });
+            product = context.Products.Add(new Product { ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }]});
+            context.ProductArticles.Add(new ProductArticle { Name = "P3", Products = [product.Entity]});
         }
     }
 
@@ -2286,13 +2326,17 @@ public class MapObjectPropertyFromSubQueryWithCollectionSameNameWithInheritance 
     {
         protected override void Seed(ClientContext context)
         {
-            var product = context.Products.Add(new Product { ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
-            var product2 = context.Products.Add(new Product { ECommercePublished = false, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
-            context.ProductArticles.Add(new ProductArticleA { Name = "P1", A = "a", Products = new[] { product.Entity, product2.Entity } });
-            product = context.Products.Add(new Product { ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
-            context.ProductArticles.Add(new ProductArticleB { Name = "P2", B = "b", Products = new[] { product.Entity } });
-            product = context.Products.Add(new Product { ECommercePublished = true, Articles = new[] { new Article { IsDefault = true, NationId = 1, ProductId = 1 } } });
-            context.ProductArticles.Add(new ProductArticle { Name = "P3", Products = new[] { product.Entity } });
+            var product = context.Products.Add(new Product { ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }
+                ]
+            });
+            var product2 = context.Products.Add(new Product { ECommercePublished = false, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }
+                ]
+            });
+            context.ProductArticles.Add(new ProductArticleA { Name = "P1", A = "a", Products = [product.Entity, product2.Entity]});
+            product = context.Products.Add(new Product { ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }]});
+            context.ProductArticles.Add(new ProductArticleB { Name = "P2", B = "b", Products = [product.Entity]});
+            product = context.Products.Add(new Product { ECommercePublished = true, Articles = [new Article { IsDefault = true, NationId = 1, ProductId = 1 }]});
+            context.ProductArticles.Add(new ProductArticle { Name = "P3", Products = [product.Entity]});
         }
     }
 
@@ -2308,14 +2352,14 @@ public class MapObjectPropertyFromSubQueryWithCollectionSameNameWithInheritance 
             modelBuilder.Entity<ProductArticleB>();
         }
     }
-    public async Task InitializeAsync()
+    public async ValueTask InitializeAsync()
     {
         var initializer = new DatabaseInitializer();
 
         await initializer.Migrate();
     }
 
-    public Task DisposeAsync() => Task.CompletedTask;
+    public ValueTask DisposeAsync() => ValueTask.CompletedTask;
 }
 public class SubQueryWithMapFromNullableWithInheritance : IntegrationTest<SubQueryWithMapFromNullableWithInheritance.DatabaseInitializer>
 {
@@ -2498,7 +2542,7 @@ public class MapObjectPropertyFromSubQueryCustomSourceWithInheritance : Integrat
     public class Brand
     {
         public int Id { get; set; }
-        public List<Owner> Owners { get; set; } = new List<Owner>();
+        public List<Owner> Owners { get; set; } = [];
     }
     public class Product
     {

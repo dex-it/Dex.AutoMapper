@@ -15,14 +15,14 @@ public class ReverseMapWithPreserveReferences : AutoMapperSpecBase
         public CategoryModel Category { get; set; }
     }
 
-    public class UserGroupModel
+    public sealed class UserGroupModel
     {
         public UserGroupModel()
         {
             Users = new List<UserModel>();
         }
 
-        public virtual ICollection<UserModel> Users { get; set; }
+        public ICollection<UserModel> Users { get; set; }
     }
 
     public class UserDto
@@ -36,14 +36,14 @@ public class ReverseMapWithPreserveReferences : AutoMapperSpecBase
         public CategoryDto Category { get; set; }
     }
 
-    public class UserGroupDto
+    public sealed class UserGroupDto
     {
         public UserGroupDto()
         {
             Users = new List<UserDto>();
         }
 
-        public virtual ICollection<UserDto> Users { get; set; }
+        public ICollection<UserDto> Users { get; set; }
     }
 
     protected override MapperConfiguration CreateConfiguration() => new(cfg =>
@@ -71,6 +71,6 @@ public class ReverseMapWithPreserveReferences : AutoMapperSpecBase
     [Fact]
     public void Should_map_ok()
     {
-        _destination.Group.Users.SequenceEqual(new[] { _destination }).ShouldBeTrue();
+        _destination.Group.Users.SequenceEqual([_destination]).ShouldBeTrue();
     }
 }
