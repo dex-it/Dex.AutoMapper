@@ -34,6 +34,7 @@ public class ExpansionTests : IClassFixture<ExpansionTestsFixture>
     {
         string query = "/personmodel";
         Test(await GetAsync<PersonModel, Person>(query));
+        return;
 
         void Test(ICollection<PersonModel> collection)
         {
@@ -48,6 +49,7 @@ public class ExpansionTests : IClassFixture<ExpansionTestsFixture>
     {
         string query = "/vinylrecordmodel";
         Test(await GetAsync<VinylRecordModel, VinylRecord>(query));
+        return;
 
         void Test(ICollection<VinylRecordModel> collection)
         {
@@ -70,6 +72,7 @@ public class ExpansionTests : IClassFixture<ExpansionTestsFixture>
     {
         string query = "/vinylrecordmodel";
         Test(await GetAsync<VinylRecordModel, VinylRecord>(query));
+        return;
 
         void Test(ICollection<VinylRecordModel> collection)
         {
@@ -86,6 +89,7 @@ public class ExpansionTests : IClassFixture<ExpansionTestsFixture>
     {
         string query = "/recordstoremodel";
         Test(await GetAsync<RecordStoreModel, RecordStore>(query));
+        return;
 
         static void Test(ICollection<RecordStoreModel> collection)
         {
@@ -101,6 +105,7 @@ public class ExpansionTests : IClassFixture<ExpansionTestsFixture>
     {
         string query = "/recordstoremodel?$expand=StoreAddress/Doors";
         Test(await GetAsync<RecordStoreModel, RecordStore>(query));
+        return;
 
         static void Test(ICollection<RecordStoreModel> collection)
         {
@@ -118,6 +123,7 @@ public class ExpansionTests : IClassFixture<ExpansionTestsFixture>
     {
         string query = "/recordstoremodel?$expand=StoreAddress/Doors($expand=DoorManufacturer)";
         Test(await GetAsync<RecordStoreModel, RecordStore>(query));
+        return;
 
         static void Test(ICollection<RecordStoreModel> collection)
         {
@@ -137,6 +143,7 @@ public class ExpansionTests : IClassFixture<ExpansionTestsFixture>
     {
         string query = "/recordstoremodel?$expand=StoreAddress/Doors($expand=DoorManufacturer,DoorKnob)";
         Test(await GetAsync<RecordStoreModel, RecordStore>(query));
+        return;
 
         static void Test(ICollection<RecordStoreModel> collection)
         {

@@ -18,8 +18,10 @@ public class GetTests
     }
 
     #region Fields
+
     private IServiceProvider serviceProvider;
     private IHttpClientFactory clientFactory;
+
     #endregion Fields
 
     private void Initialize()
@@ -36,6 +38,7 @@ public class GetTests
     public async ValueTask OpsTenantSearchAndFilterNoResult(string port)
     {
         Test(await Get<OpsTenant>("/opstenant?$search=One&$filter=Name eq 'Two'", port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -48,6 +51,7 @@ public class GetTests
     public async ValueTask OpsTenantSearchAndFilterExpand(string port)
     {
         Test(await Get<OpsTenant>("/opstenant?$search=One&$filter=CreatedDate gt 2012-11-11T00:00:00.00Z&$expand=Buildings", port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -62,6 +66,7 @@ public class GetTests
     public async ValueTask OpsTenantSearchExpand(string port)
     {
         Test(await Get<OpsTenant>("/opstenant?$search=One&$expand=Buildings", port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -76,6 +81,7 @@ public class GetTests
     public async ValueTask OpsTenantSearchNoExpand(string port)
     {
         Test(await Get<OpsTenant>("/opstenant?$search=One", port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -90,6 +96,7 @@ public class GetTests
     public async ValueTask OpsTenantExpandBuildingsFilterEqAndOrderBy(string port)
     {
         Test(await Get<OpsTenant>("/opstenant?$top=5&$expand=Buildings&$filter=Name eq 'One'&$orderby=Name desc", port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -104,6 +111,7 @@ public class GetTests
     public async ValueTask OpsTenantExpandBuildingsFilterNeAndOrderBy(string port)
     {
         Test(await Get<OpsTenant>("/opstenant?$top=5&$expand=Buildings&$filter=Name ne 'One'&$orderby=Name desc", port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -118,6 +126,7 @@ public class GetTests
     public async ValueTask OpsTenantFilterEqNoExpand(string port)
     {
         Test(await Get<OpsTenant>("/opstenant?$filter=Name eq 'One'", port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -132,6 +141,7 @@ public class GetTests
     public async ValueTask OpsTenantFilterGtDateNoExpand(string port)
     {
         Test(await Get<OpsTenant>("/opstenant?$filter=CreatedDate gt 2012-11-11T00:00:00.00Z", port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -146,6 +156,7 @@ public class GetTests
     public async ValueTask OpsTenantFilterLtDateNoExpand(string port)
     {
         Test(await Get<OpsTenant>("/opstenant?$filter=CreatedDate lt 2012-11-11T12:00:00.00Z", port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -158,6 +169,7 @@ public class GetTests
     public async ValueTask OpsTenantExpandBuildingsNoFilterAndOrderBy(string port)
     {
         Test(await Get<OpsTenant>("/opstenant?$top=5&$expand=Buildings&$orderby=Name desc", port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -172,6 +184,7 @@ public class GetTests
     public async ValueTask OpsTenantNoExpandNoFilterAndOrderBy(string port)
     {
         Test(await Get<OpsTenant>("/opstenant?$orderby=Name desc", port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -186,6 +199,7 @@ public class GetTests
     public async ValueTask OpsTenantNoExpandFilterEqAndOrderBy(string port)
     {
         Test(await Get<OpsTenant>("/opstenant?$top=5&$filter=Name eq 'One'&$orderby=Name desc", port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -199,7 +213,10 @@ public class GetTests
     [InlineData("16324")]
     public async ValueTask OpsTenantExpandBuildingsSelectNameAndBuilderExpandBuilderExpandCityFilterNeAndOrderBy(string port)
     {
-        Test(await Get<OpsTenant>("/opstenant?$top=5&$select=Name&$expand=Buildings($select=Name,Builder;$expand=Builder($select=Name,City;$expand=City))&$filter=Name ne 'One'&$orderby=Name desc", port));
+        Test(await Get<OpsTenant>(
+            "/opstenant?$top=5&$select=Name&$expand=Buildings($select=Name,Builder;$expand=Builder($select=Name,City;$expand=City))&$filter=Name ne 'One'&$orderby=Name desc",
+            port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -217,6 +234,7 @@ public class GetTests
     public async ValueTask OpsTenantExpandBuildingsExpandBuilderExpandCityFilterNeAndOrderBy(string port)
     {
         Test(await Get<OpsTenant>("/opstenant?$top=5&$expand=Buildings($expand=Builder($expand=City))&$filter=Name ne 'One'&$orderby=Name desc", port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -233,6 +251,7 @@ public class GetTests
     public async ValueTask BuildingExpandBuilderTenantFilterEqAndOrderBy(string port)
     {
         Test(await Get<CoreBuilding>("/corebuilding?$top=5&$expand=Builder,Tenant&$filter=name eq 'One L1'", port));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -248,6 +267,7 @@ public class GetTests
     public async ValueTask BuildingExpandBuilderTenantFilterOnNestedPropertyAndOrderBy(string port)
     {
         Test(await Get<CoreBuilding>("/corebuilding?$top=5&$expand=Builder,Tenant&$filter=Builder/Name eq 'Sam'&$orderby=Name asc", port));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -263,6 +283,7 @@ public class GetTests
     public async ValueTask BuildingExpandBuilderTenantExpandCityFilterOnPropertyAndOrderBy(string port)
     {
         Test(await Get<CoreBuilding>("/corebuilding?$top=5&$expand=Builder($expand=City),Tenant&$filter=Name ne 'One L2'&$orderby=Name desc", port));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -285,6 +306,7 @@ public class GetTests
                 port
             )
         );
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -298,6 +320,7 @@ public class GetTests
     public async ValueTask BuildingExpandBuilderTenantExpandCityOrderByName(string port)
     {
         Test(await Get<CoreBuilding>("/corebuilding?$top=5&$expand=Builder($expand=City),Tenant&$orderby=Name desc", port));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -311,6 +334,7 @@ public class GetTests
     public async ValueTask BuildingExpandBuilderTenantExpandCityOrderByNameThenByIdentity(string port)
     {
         Test(await Get<CoreBuilding>("/corebuilding?$top=5&$expand=Builder($expand=City),Tenant&$orderby=Name desc,Identity", port));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -324,6 +348,7 @@ public class GetTests
     public async ValueTask BuildingExpandBuilderTenantExpandCityOrderByBuilderName(string port)
     {
         Test(await Get<CoreBuilding>("/corebuilding?$top=5&$expand=Builder($expand=City),Tenant&$orderby=Builder/Name", port));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -346,6 +371,7 @@ public class GetTests
                 port
             )
         );
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -368,6 +394,7 @@ public class GetTests
                 port
             )
         );
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -382,6 +409,7 @@ public class GetTests
     public async ValueTask BuildingSelectName_WithoutOrder_WithoutTop(string port)
     {
         Test(await Get<CoreBuilding>("/corebuilding?$select=Name", port));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -394,6 +422,7 @@ public class GetTests
     public async ValueTask OpsTenantOrderByCountOfReference(string port)
     {
         Test(await Get<OpsTenant>("/opstenant?$expand=Buildings&$orderby=Buildings/$count desc", port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -410,6 +439,7 @@ public class GetTests
     public async ValueTask OpsTenantOrderByFilteredCount(string port)
     {
         Test(await Get<OpsTenant>("/opstenant?$expand=Buildings&$orderby=Buildings/$count($filter=Name eq 'One L1') desc", port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -428,6 +458,8 @@ public class GetTests
     public async ValueTask CoreBuildingOrderByCountOfChildReferenceOfReference(string port)
     {
         Test(await Get<CoreBuilding>("/corebuilding?$expand=Tenant($expand=Buildings)&$orderby=Tenant/Buildings/$count desc", port));
+        return;
+
         void Test(ICollection<CoreBuilding> collection)
         {
             Assert.Equal(5, collection.Count);
@@ -442,6 +474,8 @@ public class GetTests
     public async ValueTask CoreBuildingOrderByPropertyOfChildReferenceOfReference(string port)
     {
         Test(await Get<CoreBuilding>("/corebuilding?$expand=Builder($expand=City)&$orderby=Builder/City/Name desc", port));
+        return;
+
         void Test(ICollection<CoreBuilding> collection)
         {
             Assert.Equal(5, collection.Count);
@@ -456,6 +490,7 @@ public class GetTests
     public async ValueTask OpsTenantSelectNameExpandBuildings(string port)
     {
         Test(await Get<OpsTenant>("/opstenant?$select=Name&$expand=Buildings&$orderby=Name", port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -471,6 +506,7 @@ public class GetTests
     public async ValueTask OpsTenantExpandBuildingsFilterEqAndOrderBy_FirstBuildingHasValues(string port)
     {
         Test(await Get<OpsTenant>("/opstenant?$top=5&$select=Buildings&$expand=Buildings&$filter=Name eq 'One'&$orderby=Name desc", port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -488,6 +524,7 @@ public class GetTests
     public async ValueTask BuildingSelectNameExpandBuilder_BuilderNameShouldBeSam(string port)
     {
         Test(await Get<CoreBuilding>("/corebuilding?$top=5&$select=Name&$expand=Builder($select=Name)&$filter=name eq 'One L1'", port));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -505,6 +542,7 @@ public class GetTests
     public async ValueTask BuildingExpandBuilderSelectNamefilterEqAndOrderBy(string port)
     {
         Test(await Get<CoreBuilding>("/corebuilding?$top=5&$expand=Builder($select=Name)&$filter=name eq 'One L1'", port));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -519,9 +557,11 @@ public class GetTests
 
     [Theory]
     [InlineData("16324")]
-    public async ValueTask BuildingExpandBuilderSelectNameExpandCityFilterEqAndOrderBy_CityShouldBeExpanded_BuilderNameShouldBeSam_BuilderIdShouldBeZero(string port)
+    public async ValueTask
+        BuildingExpandBuilderSelectNameExpandCityFilterEqAndOrderBy_CityShouldBeExpanded_BuilderNameShouldBeSam_BuilderIdShouldBeZero(string port)
     {
         Test(await Get<CoreBuilding>("/corebuilding?$top=5&$expand=Builder($select=Name;$expand=City)&$filter=name eq 'One L1'", port));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -539,7 +579,10 @@ public class GetTests
     [InlineData("16324")]
     public async ValueTask OpsTenantExpandBuildingsSelectNameAndBuilderExpandBuilderExpandCityFilterNeAndOrderBy_filterAndSortChildCollection(string port)
     {
-        Test(await Get<OpsTenant>("/opstenant?$top=5&$select=Name&$expand=Buildings($filter=Name ne 'Two L1';$orderby=Name;$select=Name,Builder;$expand=Builder($select=Name,City;$expand=City))&$filter=Name ne 'One'&$orderby=Name desc", port));
+        Test(await Get<OpsTenant>(
+            "/opstenant?$top=5&$select=Name&$expand=Buildings($filter=Name ne 'Two L1';$orderby=Name;$select=Name,Builder;$expand=Builder($select=Name,City;$expand=City))&$filter=Name ne 'One'&$orderby=Name desc",
+            port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -557,7 +600,10 @@ public class GetTests
     [InlineData("16324")]
     public async ValueTask OpsTenantExpandBuildingsExpandBuilderExpandCityFilterNeAndOrderBy_filterAndSortChildCollection(string port)
     {
-        Test(await Get<OpsTenant>("/opstenant?$top=5&$expand=Buildings($filter=Name ne '';$orderby=Name desc;$expand=Builder($expand=City))&$filter=Name ne 'One'&$orderby=Name desc", port));
+        Test(await Get<OpsTenant>(
+            "/opstenant?$top=5&$expand=Buildings($filter=Name ne '';$orderby=Name desc;$expand=Builder($expand=City))&$filter=Name ne 'One'&$orderby=Name desc",
+            port));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {

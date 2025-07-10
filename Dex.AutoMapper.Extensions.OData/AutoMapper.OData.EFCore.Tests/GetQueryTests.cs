@@ -46,6 +46,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<OpsTenant, TMandator>(query));
         Test(await GetAsyncUsingLowerCamelCase<OpsTenant, TMandator>(query));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -62,6 +63,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<OpsTenant, TMandator>(query));
         Test(await GetAsyncUsingLowerCamelCase<OpsTenant, TMandator>(query));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -91,6 +93,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(Get<OpsTenant, TMandator>(query, querySettings: querySettings));
         Test(await GetAsync<OpsTenant, TMandator>(query, querySettings: querySettings));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query, querySettings: querySettings));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -121,6 +124,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<OpsTenant, TMandator>(query, querySettings: querySettings));
         Test(await GetAsyncUsingLowerCamelCase<OpsTenant, TMandator>(query, querySettings: querySettings));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query, querySettings: querySettings));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -136,6 +140,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<OpsTenant, TMandator>(query));
         Test(await GetAsyncUsingLowerCamelCase<OpsTenant, TMandator>(query));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -153,6 +158,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<OpsTenant, TMandator>(query));
         Test(await GetAsyncUsingLowerCamelCase<OpsTenant, TMandator>(query));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query));
+        return;
 
         static void Test(ICollection<OpsTenant> collection)
         {
@@ -170,6 +176,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<OpsTenant, TMandator>(query));
         Test(await GetAsyncUsingLowerCamelCase<OpsTenant, TMandator>(query));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query));
+        return;
 
         static void Test(ICollection<OpsTenant> collection)
         {
@@ -188,6 +195,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<OpsTenant, TMandator>(query));
         Test(await GetAsyncUsingLowerCamelCase<OpsTenant, TMandator>(query));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -205,6 +213,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<OpsTenant, TMandator>(query));
         Test(await GetAsyncUsingLowerCamelCase<OpsTenant, TMandator>(query));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -222,6 +231,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<OpsTenant, TMandator>(query));
         Test(await GetAsyncUsingLowerCamelCase<OpsTenant, TMandator>(query));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -239,6 +249,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<OpsTenant, TMandator>(query));
         Test(await GetAsyncUsingLowerCamelCase<OpsTenant, TMandator>(query));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -254,6 +265,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<OpsTenant, TMandator>(query));
         Test(await GetAsyncUsingLowerCamelCase<OpsTenant, TMandator>(query));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -271,6 +283,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<OpsTenant, TMandator>(query));
         Test(await GetAsyncUsingLowerCamelCase<OpsTenant, TMandator>(query));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -368,6 +381,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<OpsTenant, TMandator>(query));
         Test(await GetAsyncUsingLowerCamelCase<OpsTenant, TMandator>(query));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -385,6 +399,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<OpsTenant, TMandator>(query));
         Test(await GetAsyncUsingLowerCamelCase<OpsTenant, TMandator>(query));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -405,6 +420,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<OpsTenant, TMandator>(query));
         Test(await GetAsyncUsingLowerCamelCase<OpsTenant, TMandator>(query));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -482,6 +498,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
                 }
             )
         );
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -501,6 +518,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<CoreBuilding, TBuilding>(query));
         Test(await GetAsyncUsingLowerCamelCase<CoreBuilding, TBuilding>(query));
         Test(await GetUsingCustomNameSpace<CoreBuilding, TBuilding>(query));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -519,6 +537,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<CoreBuilding, TBuilding>(query));
         Test(await GetAsyncUsingLowerCamelCase<CoreBuilding, TBuilding>(query));
         Test(await GetUsingCustomNameSpace<CoreBuilding, TBuilding>(query));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -537,6 +556,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<CoreBuilding, TBuilding>(query));
         Test(await GetAsyncUsingLowerCamelCase<CoreBuilding, TBuilding>(query));
         Test(await GetUsingCustomNameSpace<CoreBuilding, TBuilding>(query));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -555,6 +575,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<CoreBuilding, TBuilding>(query));
         Test(await GetAsyncUsingLowerCamelCase<CoreBuilding, TBuilding>(query));
         Test(await GetUsingCustomNameSpace<CoreBuilding, TBuilding>(query));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -589,6 +610,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
                 )
             )
         );
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -606,6 +628,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<CoreBuilding, TBuilding>(query));
         Test(await GetAsyncUsingLowerCamelCase<CoreBuilding, TBuilding>(query));
         Test(await GetUsingCustomNameSpace<CoreBuilding, TBuilding>(query));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -622,6 +645,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<CoreBuilding, TBuilding>(query));
         Test(await GetAsyncUsingLowerCamelCase<CoreBuilding, TBuilding>(query));
         Test(await GetUsingCustomNameSpace<CoreBuilding, TBuilding>(query));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -638,6 +662,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<CoreBuilding, TBuilding>(query));
         Test(await GetAsyncUsingLowerCamelCase<CoreBuilding, TBuilding>(query));
         Test(await GetUsingCustomNameSpace<CoreBuilding, TBuilding>(query));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -660,6 +685,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<CoreBuilding, TBuilding>(query, options));
         Test(await GetAsyncUsingLowerCamelCase<CoreBuilding, TBuilding>(query));
         Test(await GetUsingCustomNameSpace<CoreBuilding, TBuilding>(query, options));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -684,6 +710,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<CoreBuilding, TBuilding>(query, options));
         Test(await GetAsyncUsingLowerCamelCase<CoreBuilding, TBuilding>(query));
         Test(await GetUsingCustomNameSpace<CoreBuilding, TBuilding>(query, options));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -702,6 +729,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<CoreBuilding, TBuilding>(query));
         Test(await GetAsyncUsingLowerCamelCase<CoreBuilding, TBuilding>(query));
         Test(await GetUsingCustomNameSpace<CoreBuilding, TBuilding>(query));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -717,6 +745,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<CoreBuilding, TBuilding>(query));
         Test(await GetAsyncUsingLowerCamelCase<CoreBuilding, TBuilding>(query));
         Test(await GetUsingCustomNameSpace<CoreBuilding, TBuilding>(query));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -732,6 +761,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<CoreBuilding, TBuilding>(query));
         Test(await GetAsyncUsingLowerCamelCase<CoreBuilding, TBuilding>(query));
         Test(await GetUsingCustomNameSpace<CoreBuilding, TBuilding>(query));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -748,6 +778,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<CoreBuilding, TBuilding>(query, querySettings: querySettings));
         Test(await GetAsyncUsingLowerCamelCase<CoreBuilding, TBuilding>(query, querySettings: querySettings));
         Test(await GetUsingCustomNameSpace<CoreBuilding, TBuilding>(query, querySettings: querySettings));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -764,6 +795,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<CoreBuilding, TBuilding>(query, querySettings: querySettings));
         Test(await GetAsyncUsingLowerCamelCase<CoreBuilding, TBuilding>(query, querySettings: querySettings));
         Test(await GetUsingCustomNameSpace<CoreBuilding, TBuilding>(query, querySettings: querySettings));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -780,6 +812,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<CoreBuilding, TBuilding>(query, querySettings: querySettings));
         Test(await GetAsyncUsingLowerCamelCase<CoreBuilding, TBuilding>(query, querySettings: querySettings));
         Test(await GetUsingCustomNameSpace<CoreBuilding, TBuilding>(query, querySettings: querySettings));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -817,6 +850,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
                 querySettings
             )
         );
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -859,6 +893,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
                 querySettings
             )
         );
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -872,6 +907,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
     {
         string query = "/corebuilding?$filter=contains(Name, 'Two L2')";
         Test(GetQuery<CoreBuilding, TBuilding>(query, querySettings: new() { ODataSettings = new() { EnableConstantParameterization = false } }));
+        return;
 
         void Test(IQueryable<CoreBuilding> queryable)
         {
@@ -887,6 +923,8 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
     {
         string query = "/corebuilding?$filter=contains(Name, 'Two L2')";
         Test(GetQuery<CoreBuilding, TBuilding>(query, querySettings: new() { ODataSettings = new() { EnableConstantParameterization = true } }));
+        return;
+
         void Test(IQueryable<CoreBuilding> queryable)
         {
             string sqlQuery = queryable.ToQueryString();
@@ -901,6 +939,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
     {
         string query = "/corebuilding?$filter=contains(Name, 'Two L2')&$top=10";
         Test(GetQuery<CoreBuilding, TBuilding>(query, querySettings: new() { ODataSettings = new() { AlwaysSortByPrimaryKey = false } }));
+        return;
 
         void Test(IQueryable<CoreBuilding> queryable)
         {
@@ -915,6 +954,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
     {
         string query = "/corebuilding?$filter=contains(Name, 'Two L2')&$top=10";
         Test(GetQuery<CoreBuilding, TBuilding>(query, querySettings: new() { ODataSettings = new() { AlwaysSortByPrimaryKey = true } }));
+        return;
 
         void Test(IQueryable<CoreBuilding> queryable)
         {
@@ -929,6 +969,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
     {
         string query = "/corebuilding?$filter=contains(Name, 'Two L2')&$skip=10";
         Test(GetQuery<CoreBuilding, TBuilding>(query, querySettings: new() { ODataSettings = new() { AlwaysSortByPrimaryKey = false } }));
+        return;
 
         void Test(IQueryable<CoreBuilding> queryable)
         {
@@ -943,6 +984,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
     {
         string query = "/corebuilding?$filter=contains(Name, 'Two L2')&$skip=10";
         Test(GetQuery<CoreBuilding, TBuilding>(query, querySettings: new() { ODataSettings = new() { AlwaysSortByPrimaryKey = true } }));
+        return;
 
         void Test(IQueryable<CoreBuilding> queryable)
         {
@@ -960,6 +1002,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<OpsTenant, TMandator>(query));
         Test(await GetAsyncUsingLowerCamelCase<OpsTenant, TMandator>(query));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -979,6 +1022,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         Test(await GetAsync<OpsTenant, TMandator>(query));
         Test(await GetAsyncUsingLowerCamelCase<OpsTenant, TMandator>(query));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -1023,6 +1067,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
         Test(await GetAsync<CoreBuilding, TBuilding>(query));
         Test(await GetAsyncUsingLowerCamelCase<CoreBuilding, TBuilding>(query));
         Test(await GetUsingCustomNameSpace<CoreBuilding, TBuilding>(query));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -1177,6 +1222,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
                 GetCategories()
             )
         );
+        return;
 
         static void Test(ICollection<CategoryModel> collection)
         {
@@ -1221,6 +1267,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
                 GetCategories()
             )
         );
+        return;
 
         static void Test(ICollection<CategoryModel> collection)
         {
@@ -1265,6 +1312,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
                 GetCategories()
             )
         );
+        return;
 
         static void Test(ICollection<CategoryModel> collection)
         {
@@ -1309,6 +1357,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
                 GetCategories()
             )
         );
+        return;
 
         static void Test(ICollection<CategoryModel> collection)
         {
@@ -1354,6 +1403,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
                 GetCategories()
             )
         );
+        return;
 
         static void Test(ICollection<CategoryModel> collection)
         {
@@ -1399,6 +1449,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
                 GetCategories()
             )
         );
+        return;
 
         static void Test(ICollection<CategoryModel> collection)
         {
@@ -1444,6 +1495,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
                 GetCategories()
             )
         );
+        return;
 
         static void Test(ICollection<CategoryModel> collection)
         {
@@ -1489,6 +1541,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
                 GetCategories()
             )
         );
+        return;
 
         static void Test(ICollection<CategoryModel> collection)
         {
@@ -1506,6 +1559,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
         Test(await GetAsyncUsingLowerCamelCase<CategoryModel, Category>(query, GetCategories()));
         Test(await GetUsingCustomNameSpace<CategoryModel, Category>(query, GetCategories()));
         Test(Get<CategoryModel, Category>(query, GetCategories()));
+        return;
 
         static void Test(ICollection<CategoryModel> collection)
         {
@@ -1527,6 +1581,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
         Test(await GetAsyncUsingLowerCamelCase<CategoryModel, Category>(query, GetCategories()));
         Test(await GetUsingCustomNameSpace<CategoryModel, Category>(query, GetCategories()));
         Test(Get<CategoryModel, Category>(query, GetCategories()));
+        return;
 
         static void Test(ICollection<CategoryModel> collection)
         {
@@ -1548,6 +1603,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
         Test(await GetAsyncUsingLowerCamelCase<CategoryModel, Category>(query, GetCategories()));
         Test(await GetUsingCustomNameSpace<CategoryModel, Category>(query, GetCategories()));
         Test(Get<CategoryModel, Category>(query, GetCategories()));
+        return;
 
         static void Test(ICollection<CategoryModel> collection)
         {
@@ -1566,6 +1622,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
         Test(await GetAsyncUsingLowerCamelCase<CategoryModel, Category>(query, GetCategories()));
         Test(await GetUsingCustomNameSpace<CategoryModel, Category>(query, GetCategories()));
         Test(Get<CategoryModel, Category>(query, GetCategories()));
+        return;
 
         static void Test(ICollection<CategoryModel> collection)
         {
@@ -1582,6 +1639,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
         Test(await GetAsyncUsingLowerCamelCase<CategoryModel, Category>(query, GetCategories()));
         Test(await GetUsingCustomNameSpace<CategoryModel, Category>(query, GetCategories()));
         Test(Get<CategoryModel, Category>(query, GetCategories()));
+        return;
 
         static void Test(ICollection<CategoryModel> collection)
         {
@@ -1609,6 +1667,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
         Test(await GetAsyncUsingLowerCamelCase<CategoryModel, Category>(query, GetCategories()));
         Test(await GetUsingCustomNameSpace<CategoryModel, Category>(query, GetCategories()));
         Test(Get<CategoryModel, Category>(query, GetCategories()));
+        return;
 
         static void Test(ICollection<CategoryModel> collection)
         {
@@ -1632,6 +1691,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
         Test(await GetAsyncUsingLowerCamelCase<CategoryModel, Category>(query, GetCategories()));
         Test(await GetUsingCustomNameSpace<CategoryModel, Category>(query, GetCategories()));
         Test(Get<CategoryModel, Category>(query, GetCategories()));
+        return;
 
         static void Test(ICollection<CategoryModel> collection)
         {
@@ -1645,6 +1705,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
     {
         const string query = "/CategoryModel?$skip=1";
         Test(await GetAsyncDuplicateEntityName(query, GetCategories()));
+        return;
 
         static void Test(ICollection<CategoryModel> collection)
         {
@@ -1658,6 +1719,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
     {
         const string query = "/CategoryModel?$skip=1";
         Test(await GetAsyncDuplicateEntityName(query, GetCategories(), null, null, "foo.bar"));
+        return;
 
         static void Test(ICollection<CategoryModel> collection)
         {
@@ -1674,6 +1736,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
         Test(await GetAsyncUsingLowerCamelCase<CategoryModel, Category>(query, GetCategories()));
         Test(await GetUsingCustomNameSpace<CategoryModel, Category>(query, GetCategories()));
         Test(Get<CategoryModel, Category>(query, GetCategories()));
+        return;
 
         static void Test(ICollection<CategoryModel> collection)
         {
@@ -1704,6 +1767,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
         Test(await GetAsyncUsingLowerCamelCase<SuperCategoryModel, SuperCategory>(query, GetSuperCategories()));
         Test(await GetUsingCustomNameSpace<SuperCategoryModel, SuperCategory>(query, GetSuperCategories()));
         Test(Get<SuperCategoryModel, SuperCategory>(query, GetSuperCategories()));
+        return;
 
         static void Test(ICollection<SuperCategoryModel> collection)
         {
@@ -1720,6 +1784,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
         Test(await GetAsyncUsingLowerCamelCase<SuperCategoryModel, SuperCategory>(query, GetSuperCategories()));
         Test(await GetUsingCustomNameSpace<SuperCategoryModel, SuperCategory>(query, GetSuperCategories()));
         Test(Get<SuperCategoryModel, SuperCategory>(query, GetSuperCategories()));
+        return;
 
         static void Test(ICollection<SuperCategoryModel> collection)
         {

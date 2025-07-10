@@ -38,6 +38,7 @@ public class GetQuerySelectTests : IClassFixture<GetQuerySelectTestsFixture>
         Test(Get<OpsTenant, TMandator>(query));
         Test(await GetAsync<OpsTenant, TMandator>(query));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -55,6 +56,7 @@ public class GetQuerySelectTests : IClassFixture<GetQuerySelectTestsFixture>
         Test(Get<OpsTenant, TMandator>(query));
         Test(await GetAsync<OpsTenant, TMandator>(query));
         Test(await GetUsingCustomNameSpace<OpsTenant, TMandator>(query));
+        return;
 
         void Test(ICollection<OpsTenant> collection)
         {
@@ -74,6 +76,7 @@ public class GetQuerySelectTests : IClassFixture<GetQuerySelectTestsFixture>
         Test(Get<CoreBuilding, TBuilding>(query));
         Test(await GetAsync<CoreBuilding, TBuilding>(query));
         Test(await GetUsingCustomNameSpace<CoreBuilding, TBuilding>(query));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -93,6 +96,7 @@ public class GetQuerySelectTests : IClassFixture<GetQuerySelectTestsFixture>
         Test(Get<CoreBuilding, TBuilding>(query));
         Test(await GetAsync<CoreBuilding, TBuilding>(query));
         Test(await GetUsingCustomNameSpace<CoreBuilding, TBuilding>(query));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {
@@ -112,6 +116,7 @@ public class GetQuerySelectTests : IClassFixture<GetQuerySelectTestsFixture>
         Test(Get<CoreBuilding, TBuilding>(query));
         Test(await GetAsync<CoreBuilding, TBuilding>(query));
         Test(await GetUsingCustomNameSpace<CoreBuilding, TBuilding>(query));
+        return;
 
         void Test(ICollection<CoreBuilding> collection)
         {

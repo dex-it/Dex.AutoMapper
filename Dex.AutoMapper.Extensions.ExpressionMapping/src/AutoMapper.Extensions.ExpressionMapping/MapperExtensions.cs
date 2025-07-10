@@ -313,6 +313,7 @@ public static class MapperExtensions
         //Stay with the existing design of using configured data to model maps to retrieve the type mappings.
         //This is needed for property map custom expressions.
         AddTypeMaps(configurationProvider.Internal().ResolveTypeMap(sourceType: dest/*data*/, destinationType: source/*model*/));
+        return;
 
         void AddTypeMaps(TypeMap typeMap)
         {
@@ -425,6 +426,8 @@ public static class MapperExtensions
             return;
 
         FindMaps(typeMap.PropertyMaps.ToList());
+        return;
+
         void FindMaps(List<PropertyMap> maps)
         {
             foreach (PropertyMap pm in maps)
@@ -437,6 +440,8 @@ public static class MapperExtensions
                     source.GetFieldOrProperty(pm.DestinationMember.Name).GetMemberType(),
                     pm.GetSourceMemberType()
                 );
+                continue;
+
                 void AddChildMappings(Type sourcePropertyType, Type destPropertyType)
                 {
                     if (sourcePropertyType.IsLiteralType() || destPropertyType.IsLiteralType())

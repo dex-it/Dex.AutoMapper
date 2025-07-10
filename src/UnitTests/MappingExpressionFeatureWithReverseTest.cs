@@ -30,6 +30,7 @@ public class MappingExpressionFeatureWithReverseTest
 
         Validate(featureA);
         Validate(featureB);
+        return;
 
         void Validate(MappingExpressionFeatureBase feature)
         {
@@ -56,6 +57,7 @@ public class MappingExpressionFeatureWithReverseTest
         typeMapReverse.Features.Count.ShouldBe(1);
 
         Validate<TypeMapFeatureA>(featureA);
+        return;
 
         void Validate<TFeature>(MappingExpressionFeatureBase feature)
             where TFeature : TypeMapFeatureBase
@@ -96,6 +98,7 @@ public class MappingExpressionFeatureWithReverseTest
 
         Validate<TypeMapFeatureA>(featureA);
         Validate<TypeMapFeatureB>(featureB);
+        return;
 
         void Validate<TFeature>(MappingExpressionFeatureBase feature)
             where TFeature : TypeMapFeatureBase
@@ -140,6 +143,7 @@ public class MappingExpressionFeatureWithReverseTest
         Validate<TypeMapFeatureB>(featureB, typeMap);
         Validate<TypeMapFeatureA>(featureA, typeMapReverse, value: featureA.Value + 1);
         Validate<TypeMapFeatureB>(overridenFeatureB, typeMapReverse, 0);
+        return;
 
         void Validate<TFeature>(MappingExpressionFeatureBase feature, TypeMap map, int reverseExecutedCount = 1, int? value = null)
             where TFeature : TypeMapFeatureBase

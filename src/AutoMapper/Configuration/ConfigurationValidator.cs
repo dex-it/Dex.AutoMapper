@@ -46,6 +46,9 @@ public class ConfigurationValidator(IGlobalConfiguration config)
         {
             throw configExceptions[0];
         }
+
+        return;
+
         void DryRunTypeMap(TypePair types, TypeMap typeMap, MemberMap memberMap)
         {
             if (typeMap == null)
