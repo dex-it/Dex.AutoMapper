@@ -4,6 +4,12 @@
     <Summary>A convention-based object-object mapper.</Summary>
     <Description>A convention-based object-object mapper.</Description>
     <TargetFramework>net8.0</TargetFramework>
+
+    <InformationalVersion>8.0</InformationalVersion>
+    <PackageVersion>8.0.0</PackageVersion>
+    <AssemblyVersion>$(PackageVersion)</AssemblyVersion>
+    <FileVersion>$(PackageVersion)</FileVersion>
+
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>AutoMapper</AssemblyName>
     <AssemblyOriginatorKeyFile>..\..\AutoMapper.snk</AssemblyOriginatorKeyFile>
@@ -11,7 +17,7 @@
     <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
     <PackageId>AutoMapper</PackageId>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageProjectUrl>https://automapper.org</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/dex-it/Dex.AutoMapper</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
 
     <MinVerDefaultPreReleaseIdentifiers>preview.0</MinVerDefaultPreReleaseIdentifiers>
@@ -29,29 +35,29 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ResolvedMatchingContract Include="..\LastMajorVersionBinary\AutoMapper.dll" />
+    <ResolvedMatchingContract Include="..\LastMajorVersionBinary\AutoMapper.dll"/>
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\icon.png" Pack="true" PackagePath="" Visible="False" />
-    <None Include="..\..\README.md" Pack="true" PackagePath="" Visible="False" />
+    <None Include="..\..\icon.png" Pack="true" PackagePath="" Visible="False"/>
+    <None Include="..\..\README.md" Pack="true" PackagePath="" Visible="False"/>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
-    <PackageReference Include="MinVer" Version="6.0.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.DotNet.ApiCompat" Version="7.0.0-beta.22074.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2"/>
+    <PackageReference Include="MinVer" Version="6.0.0" PrivateAssets="All"/>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
+    <PackageReference Include="Microsoft.DotNet.ApiCompat" Version="7.0.0-beta.22074.1" PrivateAssets="All"/>
   </ItemGroup>
 
   <Target Name="PreBuild" AfterTargets="GetAssemblyVersion">
-    <Exec Condition=" '$(OS)' == 'Windows_NT' " Command="powershell -ExecutionPolicy Unrestricted -File &quot;$(ProjectDir)ApiCompat\PreBuild.ps1&quot; -version $(Version)" />
-    <Exec Condition=" '$(OS)' != 'Windows_NT' " Command="&quot;$(ProjectDir)ApiCompat/PreBuild.sh&quot; $(Version)" />
+    <Exec Condition=" '$(OS)' == 'Windows_NT' " Command="powershell -ExecutionPolicy Unrestricted -File &quot;$(ProjectDir)ApiCompat\PreBuild.ps1&quot; -version $(Version)"/>
+    <Exec Condition=" '$(OS)' != 'Windows_NT' " Command="&quot;$(ProjectDir)ApiCompat/PreBuild.sh&quot; $(Version)"/>
   </Target>
   <ItemGroup>
-    <Using Include="System.Linq.Expressions.Expression" Static="true" />
-    <Using Include="AutoMapper.Execution.ExpressionBuilder" Static="true" />
-    <Using Include="AutoMapper.Execution" />
-    <Using Include="AutoMapper.Configuration" />
+    <Using Include="System.Linq.Expressions.Expression" Static="true"/>
+    <Using Include="AutoMapper.Execution.ExpressionBuilder" Static="true"/>
+    <Using Include="AutoMapper.Execution"/>
+    <Using Include="AutoMapper.Configuration"/>
   </ItemGroup>
 </Project>

@@ -6,13 +6,19 @@
     <Summary>Convention-based enum value mapping extension for AutoMapper.</Summary>
     <Description>Convention-based enum value mapping extension for AutoMapper.</Description>
     <TargetFramework>net8.0</TargetFramework>
+
+    <InformationalVersion>8.0</InformationalVersion>
+    <PackageVersion>8.0.0</PackageVersion>
+    <AssemblyVersion>$(PackageVersion)</AssemblyVersion>
+    <FileVersion>$(PackageVersion)</FileVersion>
+
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>AutoMapper.Extensions.EnumMapping</AssemblyName>
     <AssemblyOriginatorKeyFile>..\..\AutoMapper.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
     <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
     <PackageId>AutoMapper.Extensions.EnumMapping</PackageId>
-    <PackageProjectUrl>https://automapper.org</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/dex-it/Dex.AutoMapper</PackageProjectUrl>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

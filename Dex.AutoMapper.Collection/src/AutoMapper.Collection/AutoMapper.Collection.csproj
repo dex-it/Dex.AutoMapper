@@ -4,10 +4,16 @@
     <Description>Collection Add/Remove/Update support for AutoMapper. AutoMapper.Collection adds EqualityComparison Expressions for TypeMaps to determine if Source and Destination type are equivalent to each other when mapping collections.</Description>
     <Authors>Tyler Carlson</Authors>
     <TargetFramework>net8.0</TargetFramework>
+
+    <InformationalVersion>8.0</InformationalVersion>
+    <PackageVersion>8.0.0</PackageVersion>
+    <AssemblyVersion>$(PackageVersion)</AssemblyVersion>
+    <FileVersion>$(PackageVersion)</FileVersion>
+
     <AssemblyName>AutoMapper.Collection</AssemblyName>
     <PackageId>AutoMapper.Collection</PackageId>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageProjectUrl>https://github.com/AutoMapper/Automapper.Collection</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/dex-it/Dex.AutoMapper</PackageProjectUrl>
     <AssemblyOriginatorKeyFile>../Key.snk</AssemblyOriginatorKeyFile>
     <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

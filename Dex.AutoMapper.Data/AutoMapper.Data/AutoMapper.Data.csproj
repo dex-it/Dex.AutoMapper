@@ -6,11 +6,17 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Authors>Jimmy Bogard</Authors>
     <TargetFramework>net8.0</TargetFramework>
+
+    <InformationalVersion>8.0</InformationalVersion>
+    <PackageVersion>8.0.0</PackageVersion>
+    <AssemblyVersion>$(PackageVersion)</AssemblyVersion>
+    <FileVersion>$(PackageVersion)</FileVersion>
+
     <AssemblyName>AutoMapper.Data</AssemblyName>
     <PackageId>AutoMapper.Data</PackageId>
     <PackageTags>AutoMapper</PackageTags>
     <PackageIconUrl>https://s3.amazonaws.com/automapper/icon.png</PackageIconUrl>
-    <PackageProjectUrl>https://github.com/AutoMapper/AutoMapper.Data</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/dex-it/Dex.AutoMapper</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -25,11 +31,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\README.md" Pack="true" PackagePath="" />
-   </ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath=""/>
+  </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\AutoMapper\AutoMapper.csproj" />
+    <ProjectReference Include="..\..\src\AutoMapper\AutoMapper.csproj"/>
   </ItemGroup>
 
 </Project>
