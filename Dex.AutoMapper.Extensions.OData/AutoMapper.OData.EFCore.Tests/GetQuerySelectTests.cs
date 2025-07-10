@@ -26,7 +26,9 @@ public class GetQuerySelectTests : IClassFixture<GetQuerySelectTestsFixture>
     }
 
     #region Fields
+
     private readonly IServiceProvider serviceProvider;
+
     #endregion Fields
 
     [Fact]
@@ -140,12 +142,13 @@ public class GetQuerySelectTests : IClassFixture<GetQuerySelectTestsFixture>
             (
                 mapper,
                 options ?? GetODataQueryOptions<TModel>(query),
-                new QuerySettings { ODataSettings = new ODataSettings { HandleNullPropagation = HandleNullPropagationOption.False } }
+                new QuerySettings {ODataSettings = new ODataSettings {HandleNullPropagation = HandleNullPropagationOption.False}}
             );
         }
     }
 
-    private async Task<ICollection<TModel>> GetAsync<TModel, TData>(string query, IQueryable<TData> dataQueryable, ODataQueryOptions<TModel> options = null, QuerySettings querySettings = null, string customNamespace = null) where TModel : class where TData : class
+    private async Task<ICollection<TModel>> GetAsync<TModel, TData>(string query, IQueryable<TData> dataQueryable, ODataQueryOptions<TModel> options = null,
+        QuerySettings querySettings = null, string customNamespace = null) where TModel : class where TData : class
     {
         return
         (
@@ -166,7 +169,8 @@ public class GetQuerySelectTests : IClassFixture<GetQuerySelectTestsFixture>
         }
     }
 
-    private async Task<ICollection<TModel>> GetAsync<TModel, TData>(string query, ODataQueryOptions<TModel> options = null, QuerySettings querySettings = null, string customNamespace = null) where TModel : class where TData : class
+    private async Task<ICollection<TModel>> GetAsync<TModel, TData>(string query, ODataQueryOptions<TModel> options = null, QuerySettings querySettings = null,
+        string customNamespace = null) where TModel : class where TData : class
     {
         return await GetAsync
         (

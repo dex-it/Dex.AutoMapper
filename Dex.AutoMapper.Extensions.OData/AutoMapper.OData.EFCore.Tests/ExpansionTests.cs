@@ -56,7 +56,7 @@ public class ExpansionTests : IClassFixture<ExpansionTestsFixture>
             //Navigation properties
             Assert.True(collection.All(vinyl => vinyl.Person is null));
             Assert.True(collection.All(vinyl => vinyl.PressingDetail is null));
-                
+
             //Complex types
             Assert.Contains(collection, vinyl => vinyl.Properties.Count != 0);
             Assert.Contains(collection, vinyl => vinyl.Properties.Any(p => !p.Value.GetType().IsLiteralType()));
@@ -207,7 +207,6 @@ public class ExpansionTestsFixture
             Services = services
         };
 
-        builder.AddOData();
         services.AddDbContext<AirVinylDbContext>
             (
                 options => options.UseSqlServer
@@ -222,6 +221,8 @@ public class ExpansionTestsFixture
             .AddTransient<IApplicationBuilder>(sp => new ApplicationBuilder(sp))
             .AddRouting()
             .AddLogging();
+
+        builder.AddOData();
 
         ServiceProvider = services.BuildServiceProvider();
 

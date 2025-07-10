@@ -198,7 +198,7 @@ public class MapCollectionWithEqualityTests : MappingTestBase
 
         mapper.Map(new[] { dto }, entityCollection);
 
-        entity.ShouldBeEquivalentTo(entityCollection[0]);
+        entity.Should().BeEquivalentTo(entityCollection[0]);
     }
 
     public class Client
@@ -251,7 +251,7 @@ public class MapCollectionWithEqualityTests : MappingTestBase
 
         mapper.Map(new[] { dto }, entityCollection);
 
-        entity.ShouldBeEquivalentTo(entityCollection[0]);
+        entity.Should().BeEquivalentTo(entityCollection[0]);
     }
 
     public class Charge

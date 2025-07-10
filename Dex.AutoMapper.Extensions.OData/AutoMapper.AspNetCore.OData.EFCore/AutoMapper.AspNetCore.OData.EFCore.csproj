@@ -1,18 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>AutoMapper.AspNet.OData</RootNamespace>
     <PackageId>AutoMapper.AspNetCore.OData.EFCore</PackageId>
     <Description>Creates LINQ expressions from ODataQueryOptions and executes the query.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>Supporting AutoMapper v14 (EF Core only).</PackageReleaseNotes>
     <PackageTags>linq expressions odata efcore</PackageTags>
-	<PackageIcon>icon.png</PackageIcon>
+    <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/AutoMapper/AutoMapper.Extensions.OData</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/AutoMapper/AutoMapper.Extensions.OData</PackageProjectUrl>
-		<PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <AssemblyOriginatorKeyFile>..\AutoMapper.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
     <MinVerTagPrefix>v</MinVerTagPrefix>
@@ -25,30 +25,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\icon.png" Pack="true" PackagePath="" />
-		<None Include="..\README.md" Pack="true" PackagePath="" />
+    <None Include="..\icon.png" Pack="true" PackagePath=""/>
+    <None Include="..\README.md" Pack="true" PackagePath=""/>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="LogicBuilder.Expressions.Utils" Version="7.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.OData" Version="9.1.1" />
+    <PackageReference Include="LogicBuilder.Expressions.Utils" Version="7.0.0"/>
+    <PackageReference Include="Microsoft.AspNetCore.OData" Version="9.3.2"/>
     <PackageReference Include="MinVer" Version="6.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net9.0' ">
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.11" />
-	</ItemGroup>
-
-	<ItemGroup Condition=" '$(TargetFramework)' == 'net9.0' ">
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
-	</ItemGroup>
-  
   <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.18"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App"/>
   </ItemGroup>
 
   <ItemGroup>
@@ -67,8 +63,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Dex.AutoMapper.Extensions.ExpressionMapping\src\AutoMapper.Extensions.ExpressionMapping\AutoMapper.Extensions.ExpressionMapping.csproj" />
-    <ProjectReference Include="..\..\src\AutoMapper\AutoMapper.csproj" />
+    <ProjectReference Include="..\..\Dex.AutoMapper.Extensions.ExpressionMapping\src\AutoMapper.Extensions.ExpressionMapping\AutoMapper.Extensions.ExpressionMapping.csproj"/>
+    <ProjectReference Include="..\..\src\AutoMapper\AutoMapper.csproj"/>
   </ItemGroup>
 
 </Project>

@@ -20,7 +20,7 @@ public abstract class InheritanceWithCollectionTests : MappingTestBase
         var typePairs = new[]{
             new TypePair(typeof(OrderDomain), typeof(OrderEf))
         };
-        typeMap.IncludedBaseTypes.ShouldBeEquivalentTo(typePairs);
+        typeMap.IncludedBaseTypes.Should().BeEquivalentTo(typePairs);
     }
 
     [Fact]
@@ -33,7 +33,7 @@ public abstract class InheritanceWithCollectionTests : MappingTestBase
             new TypePair(typeof(OnlineOrderDomain), typeof(OnlineOrderEf)),
             new TypePair(typeof(MailOrderDomain), typeof(MailOrderEf))
         };
-        typeMap.IncludedDerivedTypes.ShouldBeEquivalentTo(typePairs);
+        typeMap.IncludedDerivedTypes.Should().BeEquivalentTo(typePairs);
     }
 
     [Fact]
@@ -52,10 +52,10 @@ public abstract class InheritanceWithCollectionTests : MappingTestBase
         OrderEf orderEf = mappedRootEf.Orders[0];
 
         orderEf.Should().BeOfType<OnlineOrderEf>();
-        orderEf.Id.ShouldBeEquivalentTo(orderDomain.Id);
+        orderEf.Id.Should().BeEquivalentTo(orderDomain.Id);
 
         var onlineOrderEf = (OnlineOrderEf)orderEf;
-        onlineOrderEf.Key.ShouldBeEquivalentTo(orderDomain.Key);
+        onlineOrderEf.Key.Should().BeEquivalentTo(orderDomain.Key);
 
         // ------------------------------------------------------------- //
 
@@ -65,7 +65,7 @@ public abstract class InheritanceWithCollectionTests : MappingTestBase
         mapper.Map(mappedRootEf, rootDomain);
 
         //assert again
-        rootDomain.OnlineOrders.Count.ShouldBeEquivalentTo(2);
+        rootDomain.OnlineOrders.Count.Should().Be(2);
         rootDomain.OnlineOrders.Last().Should().BeOfType<OnlineOrderDomain>();
 
         //Assert.AreSame(rootDomain.OnlineOrders.First(), orderDomain); that doesn't matter when we map from EF to Domain
@@ -88,7 +88,7 @@ public abstract class InheritanceWithCollectionTests : MappingTestBase
         OnlineOrderDomain onlineOrderDomain = mappedRootDomain.OnlineOrders[0];
 
         onlineOrderDomain.Should().BeOfType<OnlineOrderDomain>();
-        onlineOrderEf.Id.ShouldBeEquivalentTo(onlineOrderEf.Id);
+        onlineOrderEf.Id.Should().BeEquivalentTo(onlineOrderEf.Id);
 
         // IMPORTANT ASSERT ------------------------------------------------------------- IMPORTANT ASSERT //
 
@@ -107,7 +107,7 @@ public abstract class InheritanceWithCollectionTests : MappingTestBase
         OrderEf newOnlineOrderEf = rootEf.Orders.Single(orderEf => orderEf.Id == "NewOnlineOrderId");
         OrderEf newMailOrderEf = rootEf.Orders.Single(orderEf => orderEf.Id == "NewMailOrderId");
 
-        rootEf.Orders.Count.ShouldBeEquivalentTo(4);
+        rootEf.Orders.Count.Should().Be(4);
         onlineOrderEf.Should().BeSameAs(existingOnlineOrderEf);
         mailOrderEf.Should().BeSameAs(existingMailOrderEf);
 

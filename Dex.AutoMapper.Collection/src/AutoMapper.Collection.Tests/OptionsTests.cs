@@ -38,8 +38,8 @@ public class OptionsTests : MappingTestBase
         collectionMapper.Map(dtos, items, opts => opts.Items.Add("Test", 1));
         normalMapper.Map(dtos, items, opts => opts.Items.Add("Test", 1));
 
-        collectionTestValue.ShouldBeEquivalentTo(1);
-        normalTestValue.ShouldBeEquivalentTo(1);
+        collectionTestValue.Should().Be(1);
+        normalTestValue.Should().Be(1);
     }
 
     public class Thing

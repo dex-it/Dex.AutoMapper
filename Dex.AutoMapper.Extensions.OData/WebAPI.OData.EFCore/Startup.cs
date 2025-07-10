@@ -11,7 +11,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OData.Edm;
 using Microsoft.OData.ModelBuilder;
 using WebAPI.OData.EFCore.Binders;
-using WebAPI.OData.EFCore.Mappings;
 
 namespace WebAPI.OData.EFCore
 {

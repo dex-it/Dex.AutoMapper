@@ -563,7 +563,7 @@ public class GetTests : IClassFixture<GetTestsFixture>
             Assert.Equal(2, collection.Last().Buildings.Count);
         }
     }
-        
+
     [Fact]
     public async Task OpsTenantOrderByFilteredCount()
     {

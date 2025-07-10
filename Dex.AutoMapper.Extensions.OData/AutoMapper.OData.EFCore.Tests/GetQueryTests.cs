@@ -37,7 +37,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
     {
         serviceProvider.GetRequiredService<IConfigurationProvider>().AssertConfigurationIsValid();
     }
-        
+
     [Fact]
     public async Task OpsTenantSearch()
     {
@@ -53,7 +53,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
             Assert.Equal("One", collection.First().Name);
         }
     }
-        
+
     [Fact]
     public async Task OpsTenantSearchAndFilter()
     {
@@ -158,7 +158,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         {
             Assert.Equal(2, collection.Count);
             Assert.Empty(collection.First().Buildings);
-            Assert.Empty(collection.Last().Buildings);                
+            Assert.Empty(collection.Last().Buildings);
         }
     }
 
@@ -279,7 +279,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
             Assert.Equal("Two", collection.First().Name);
         }
     }
-        
+
     [Theory]
     [InlineData(true)]
     [InlineData(false)]
@@ -291,7 +291,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         {
             ODataSettings = new ODataSettings { AlwaysSortByPrimaryKey = alwaysSortByPk }
         };
-            
+
         Test(Get<OpsTenant, TMandator>(query, GetMandators(), querySettings: querySettings));
         Test(await GetAsync<OpsTenant, TMandator>(query, GetMandators(), querySettings: querySettings));
         Test(await GetAsync<OpsTenant, TMandator>(query, GetMandators(), querySettings: querySettings, customNamespace: null, enableLowerCamelCase : true));
@@ -304,7 +304,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
                 .Select(x => x.Identity)
                 .OrderByDescending(identity => identity)
                 .ToList();
-                
+
             if (alwaysSortByPk)
             {
                 Assert.True(collection
@@ -319,7 +319,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
             }
         }
     }
-        
+
     [Theory]
     [InlineData(true)]
     [InlineData(false)]
@@ -330,7 +330,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
         {
             ODataSettings = new ODataSettings { AlwaysSortByPrimaryKey = alwaysSortByPk }
         };
-            
+
         // Test multiple scenarios
         Test(Get<OpsTenant, TMandator>(query, GetMandators(), querySettings: querySettings));
         Test(await GetAsync<OpsTenant, TMandator>(query, GetMandators(), querySettings: querySettings));
@@ -970,7 +970,7 @@ public class GetQueryTests : IClassFixture<GetQueryTestsFixture>
             Assert.Equal(2, collection.Last().Buildings.Count);
         }
     }
-        
+
     [Fact]
     public async Task OpsTenantOrderByFilteredCount()
     {
@@ -1032,7 +1032,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
             Assert.Equal("Leeds", collection.Last().Builder.City.Name);
         }
     }
-        
+
     private IQueryable<TMandator> GetMandators()
     {
         return new TMandator[]
@@ -1806,7 +1806,7 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
         return GetQuery<TModel, TData>(query, options, querySettings).ToList();
     }
 
-    private async Task<ICollection<TModel>> GetAsync<TModel, TData>(string query, 
+    private async Task<ICollection<TModel>> GetAsync<TModel, TData>(string query,
         IQueryable<TData> dataQueryable, ODataQueryOptions<TModel> options = null, QuerySettings querySettings = null, string customNamespace = null, bool enableLowerCamelCase = false) where TModel : class where TData : class
     {
         return
@@ -1882,11 +1882,11 @@ at Microsoft.EntityFrameworkCore.InMemory.Query.Internal.InMemoryExpressionTrans
     }
 
     private Task<ICollection<TModel>> GetUsingCustomNameSpace<TModel, TData>(string query,
-        IQueryable<TData> dataQueryable, ODataQueryOptions<TModel> options = null, QuerySettings querySettings = null) where TModel : class where TData : class 
+        IQueryable<TData> dataQueryable, ODataQueryOptions<TModel> options = null, QuerySettings querySettings = null) where TModel : class where TData : class
         => GetAsync(query, dataQueryable, options, querySettings, "com.FooBar");
 
     private Task<ICollection<TModel>> GetUsingCustomNameSpace<TModel, TData>(string query,
-        ODataQueryOptions<TModel> options = null, QuerySettings querySettings = null) where TModel : class where TData : class 
+        ODataQueryOptions<TModel> options = null, QuerySettings querySettings = null) where TModel : class where TData : class
         => GetAsync<TModel, TData>(query, options, querySettings, "com.FooBar");
 
     private ODataQueryOptions<TModel> GetODataQueryOptions<TModel>(string query, string customNamespace = null, bool enableLowerCamelCase = false) where TModel : class
