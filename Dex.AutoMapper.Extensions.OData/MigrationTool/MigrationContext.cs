@@ -7,7 +7,9 @@ public class MigrationContext : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(@"Server=.\SQL2016;Database=YourDB;Trusted_Connection=True;");
+        optionsBuilder.UseSqlServer(
+            "Data Source=(localdb)\\mssqllocaldb;Integrated Security=True;MultipleActiveResultSets=True;Database=YourDB;Connection Timeout=300"
+        );
     }
 
     public DbSet<TMandator> MandatorSet { get; set; }
