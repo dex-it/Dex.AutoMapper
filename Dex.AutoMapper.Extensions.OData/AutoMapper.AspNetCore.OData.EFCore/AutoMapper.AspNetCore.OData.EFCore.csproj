@@ -9,7 +9,7 @@
     <FileVersion>$(PackageVersion)</FileVersion>
 
     <RootNamespace>AutoMapper.AspNet.OData</RootNamespace>
-    <PackageId>AutoMapper.AspNetCore.OData.EFCore</PackageId>
+    <PackageId>Dex.AutoMapper.AspNetCore.OData.EFCore</PackageId>
     <Description>Creates LINQ expressions from ODataQueryOptions and executes the query.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>Supporting AutoMapper v14 (EF Core only).</PackageReleaseNotes>

@@ -11,7 +11,7 @@
     <FileVersion>$(PackageVersion)</FileVersion>
 
     <AssemblyName>AutoMapper.Collection</AssemblyName>
-    <PackageId>AutoMapper.Collection</PackageId>
+    <PackageId>Dex.AutoMapper.Collection</PackageId>
     <PackageIcon>icon.png</PackageIcon>
     <PackageProjectUrl>https://github.com/dex-it/Dex.AutoMapper</PackageProjectUrl>
     <AssemblyOriginatorKeyFile>../Key.snk</AssemblyOriginatorKeyFile>

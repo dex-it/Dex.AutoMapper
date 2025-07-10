@@ -15,7 +15,7 @@
     <AssemblyOriginatorKeyFile>..\..\AutoMapper.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
     <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
-    <PackageId>AutoMapper</PackageId>
+    <PackageId>Dex.AutoMapper</PackageId>
     <PackageIcon>icon.png</PackageIcon>
     <PackageProjectUrl>https://github.com/dex-it/Dex.AutoMapper</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>

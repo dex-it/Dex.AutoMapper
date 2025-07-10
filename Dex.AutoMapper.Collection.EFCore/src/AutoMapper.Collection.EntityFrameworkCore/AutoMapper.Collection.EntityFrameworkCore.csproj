@@ -11,7 +11,7 @@
         <FileVersion>$(PackageVersion)</FileVersion>
 
         <AssemblyName>AutoMapper.Collection.EntityFrameworkCore</AssemblyName>
-        <PackageId>AutoMapper.Collection.EntityFrameworkCore</PackageId>
+        <PackageId>Dex.AutoMapper.Collection.EntityFrameworkCore</PackageId>
         <PackageIcon>icon.png</PackageIcon>
         <PackageProjectUrl>https://github.com/dex-it/Dex.AutoMapper</PackageProjectUrl>
         <AssemblyOriginatorKeyFile>../Key.snk</AssemblyOriginatorKeyFile>

@@ -13,7 +13,7 @@
     <FileVersion>$(PackageVersion)</FileVersion>
 
     <AssemblyName>AutoMapper.Data</AssemblyName>
-    <PackageId>AutoMapper.Data</PackageId>
+    <PackageId>Dex.AutoMapper.Data</PackageId>
     <PackageTags>AutoMapper</PackageTags>
     <PackageIconUrl>https://s3.amazonaws.com/automapper/icon.png</PackageIconUrl>
     <PackageProjectUrl>https://github.com/dex-it/Dex.AutoMapper</PackageProjectUrl>
