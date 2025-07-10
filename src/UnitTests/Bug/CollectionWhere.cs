@@ -3,7 +3,7 @@
 public class CollectionWhere : AutoMapperSpecBase
 {
     private Destination _destination;
-    private List<int> _sourceList = new List<int>() { 1, 2, 3 };
+    private List<int> _sourceList = [1, 2, 3];
 
     class Source
     {

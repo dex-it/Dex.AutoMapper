@@ -36,7 +36,7 @@ public class OpenGenericsWithInclude : AutoMapperSpecBase
     public class Person
     {
         public string Name { get; set; }
-        public List<BarBase> BarList { get; set; } = new List<BarBase>();
+        public List<BarBase> BarList { get; set; } = [];
     }
 
     public class PersonModel
@@ -101,7 +101,7 @@ public class OpenGenericsWithIncludeBase : AutoMapperSpecBase
     public class Person
     {
         public string Name { get; set; }
-        public List<BarBase> BarList { get; set; } = new List<BarBase>();
+        public List<BarBase> BarList { get; set; } = [];
     }
 
     public class PersonModel
@@ -212,7 +212,7 @@ public class OpenGenericsAndNonGenericsWithIncludeBase : AutoMapperSpecBase
     {
         var entity = new SubEntity { BaseMember = "foo", Id = 695, SubMember = "bar" };
 
-        var model = this.Mapper.Map<SubModel>(entity);
+        var model = Mapper.Map<SubModel>(entity);
 
         model.BaseMember.ShouldBe("foo");
         model.Id.ShouldBe(695);

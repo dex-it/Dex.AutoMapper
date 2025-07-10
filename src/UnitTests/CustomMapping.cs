@@ -120,7 +120,7 @@ public class OpenGenericMapForMember : AutoMapperSpecBase
                      int pageSize,
                      int totalItems)
         {
-            _items = items ?? Enumerable.Empty<TItem>();
+            _items = items ?? [];
             CurrentPage = currentPage;
             PageSize = pageSize;
             TotalItems = totalItems;
@@ -153,7 +153,7 @@ public class OpenGenericMapForMember : AutoMapperSpecBase
     public void Should_map_ok()
     {
         _destination.Items.SequenceEqual(_items).ShouldBeTrue();
-    } 
+    }
 }
 
 public class IntToNullableIntConverter : AutoMapperSpecBase
@@ -187,7 +187,7 @@ public class IntToNullableIntConverter : AutoMapperSpecBase
         cfg.CreateMap<int, int?>().ConvertUsing<IntToNullableConverter>();
         cfg.CreateMap<Source, Destination>();
     });
-    
+
     protected override void Because_of()
     {
         _destination = Mapper.Map<Destination>(new Source());
@@ -235,7 +235,7 @@ public class When_throwing_NRE_from_MapFrom_value_types : AutoMapperSpecBase
     {
         var model = new Model
         {
-            SubModels = new List<SubModel>()
+            SubModels = []
         };
         _viewModel = Mapper.Map<ViewModel>(model);
     }
@@ -459,7 +459,7 @@ public class When_mapping_from_object_to_string_with_use_value : AutoMapperSpecB
         public string Value { get; set; }
     }
 
-    protected override MapperConfiguration CreateConfiguration() => 
+    protected override MapperConfiguration CreateConfiguration() =>
         new(c => c.CreateMap<Source, Destination>().ForMember(d => d.Value, o => o.MapFrom(src => new object())));
 
     protected override void Because_of()

@@ -38,7 +38,7 @@ public class MultipleInterfaceInheritance : AutoMapperSpecBase
 
     protected override void Because_of()
     {
-        var thing = new Thing { Items = new[] { new Item() } };
+        var thing = new Thing { Items = [new Item()]};
         _thingDto = Mapper.Map<Thing, ThingDto>(thing);
     }
 

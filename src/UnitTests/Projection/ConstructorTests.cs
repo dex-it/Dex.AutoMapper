@@ -50,7 +50,7 @@ public class ConstructorLetClause : AutoMapperSpecBase
     [Fact]
     public void Should_construct_correctly()
     {
-        var query = new[] { new Source { Items = new[] { new SourceItem { Values = new[] { new SourceValue { Value1 = 1, Value2 = 2 } } } } } }.AsQueryable().ProjectTo<Destination>(Configuration);
+        var query = new[] { new Source { Items = [new SourceItem { Values = [new SourceValue { Value1 = 1, Value2 = 2 }]}]} }.AsQueryable().ProjectTo<Destination>(Configuration);
         var first = query.First();
         first.Item.Value1.ShouldBe(1);
         first.Item.Value2.ShouldBe(2);
@@ -313,25 +313,25 @@ public class ConstructorLetClauseWithIheritance : AutoMapperSpecBase
             new SourceA
             {
                 A = "a",
-                Items = new[]
-                {
-                    new SourceItem { Values = new[] { new SourceValue { Value1 = 1, Value2 = 2 } } }
-                }
+                Items =
+                [
+                    new SourceItem { Values = [new SourceValue { Value1 = 1, Value2 = 2 }]}
+                ]
             },
             new SourceB
             {
                 B = "b",
-                Items = new[]
-                {
-                    new SourceItem { Values = new[] { new SourceValue { Value1 = 1, Value2 = 2 } } }
-                }
+                Items =
+                [
+                    new SourceItem { Values = [new SourceValue { Value1 = 1, Value2 = 2 }]}
+                ]
             },
             new Source
             {
-                Items = new[]
-                {
-                    new SourceItem { Values = new[] { new SourceValue { Value1 = 1, Value2 = 2 } } }
-                }
+                Items =
+                [
+                    new SourceItem { Values = [new SourceValue { Value1 = 1, Value2 = 2 }]}
+                ]
             }
         }.AsQueryable().ProjectTo<Destination>(Configuration);
 

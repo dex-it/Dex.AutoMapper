@@ -20,11 +20,11 @@
                 {
                     new Parent
                     {
-                        Children = new List<Child>()
-                        {
-                            new Child() { Value = 4 },
-                            new Child() { Value = 5 },
-                        }
+                        Children =
+                        [
+                            new Child() {Value = 4},
+                            new Child() {Value = 5}
+                        ]
                     }
                 };
 

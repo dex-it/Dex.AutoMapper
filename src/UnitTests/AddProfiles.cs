@@ -12,7 +12,7 @@ public class AddProfiles : AutoMapperSpecBase
     {
         public ReverseProfile() => CreateMap<Dest, Source>();
     }
-    protected override MapperConfiguration CreateConfiguration() => new(c => c.AddProfiles(new Profile[] { new ForwardProfile(), new ReverseProfile() }));
+    protected override MapperConfiguration CreateConfiguration() => new(c => c.AddProfiles([new ForwardProfile(), new ReverseProfile()]));
     [Fact]
     public void Should_not_throw_when_loading_multiple_profiles() => GetProfiles().Count().ShouldBe(3); // default plus two specifically added
 }

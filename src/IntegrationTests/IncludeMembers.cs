@@ -133,8 +133,8 @@ public class IncludeMembersFirstOrDefault : IntegrationTest<IncludeMembersFirstO
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSource> InnerSources { get; set; } = new List<InnerSource>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSource> InnerSources { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     public class InnerSource
     {
@@ -207,8 +207,8 @@ public class IncludeMembersFirstOrDefaultWithMapFromExpression : IntegrationTest
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSource> InnerSources { get; set; } = new List<InnerSource>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSource> InnerSources { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     public class InnerSource
     {
@@ -280,14 +280,14 @@ public class IncludeMembersFirstOrDefaultWithSubqueryMapFrom : IntegrationTest<I
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSource> InnerSources { get; set; } = new List<InnerSource>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSource> InnerSources { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     public class InnerSource
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSourceDetails> InnerSourceDetails { get; } = new List<InnerSourceDetails>();
+        public List<InnerSourceDetails> InnerSourceDetails { get; } = [];
     }
     public class InnerSourceDetails
     {
@@ -300,7 +300,7 @@ public class IncludeMembersFirstOrDefaultWithSubqueryMapFrom : IntegrationTest<I
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = new List<OtherInnerSourceDetails>();
+        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = [];
     }
     public class OtherInnerSourceDetails
     {
@@ -373,8 +373,8 @@ public class IncludeMembersSelectFirstOrDefaultWithSubqueryMapFrom : Integration
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSourceWrapper> InnerSourceWrappers { get; set; } = new List<InnerSourceWrapper>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSourceWrapper> InnerSourceWrappers { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     public class InnerSourceWrapper
     {
@@ -385,7 +385,7 @@ public class IncludeMembersSelectFirstOrDefaultWithSubqueryMapFrom : Integration
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSourceDetailsWrapper> InnerSourceDetailsWrapper { get; } = new List<InnerSourceDetailsWrapper>();
+        public List<InnerSourceDetailsWrapper> InnerSourceDetailsWrapper { get; } = [];
     }
     public class InnerSourceDetailsWrapper
     {
@@ -403,7 +403,7 @@ public class IncludeMembersSelectFirstOrDefaultWithSubqueryMapFrom : Integration
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = new List<OtherInnerSourceDetails>();
+        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = [];
     }
     public class OtherInnerSourceDetails
     {
@@ -477,14 +477,14 @@ public class SubqueryMapFromWithIncludeMembersFirstOrDefault : IntegrationTest<S
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSource> InnerSources { get; set; } = new List<InnerSource>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSource> InnerSources { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     public class InnerSource
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSourceDetails> InnerSourceDetails { get; } = new List<InnerSourceDetails>();
+        public List<InnerSourceDetails> InnerSourceDetails { get; } = [];
     }
     public class InnerSourceDetails
     {
@@ -497,7 +497,7 @@ public class SubqueryMapFromWithIncludeMembersFirstOrDefault : IntegrationTest<S
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = new List<OtherInnerSourceDetails>();
+        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = [];
     }
     public class OtherInnerSourceDetails
     {
@@ -572,14 +572,14 @@ public class SubqueryMapFromWithIncludeMembersSelectFirstOrDefault : Integration
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSource> InnerSources { get; set; } = new List<InnerSource>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSource> InnerSources { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     public class InnerSource
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSourceDetails> InnerSourceDetails { get; } = new List<InnerSourceDetails>();
+        public List<InnerSourceDetails> InnerSourceDetails { get; } = [];
     }
     public class InnerSourceDetails
     {
@@ -592,7 +592,7 @@ public class SubqueryMapFromWithIncludeMembersSelectFirstOrDefault : Integration
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = new List<OtherInnerSourceDetails>();
+        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = [];
     }
     public class OtherInnerSourceDetails
     {
@@ -667,8 +667,8 @@ public class SubqueryMapFromWithIncludeMembersSelectMemberFirstOrDefault : Integ
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSourceWrapper> InnerSourceWrappers { get; set; } = new List<InnerSourceWrapper>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSourceWrapper> InnerSourceWrappers { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     public class InnerSourceWrapper
     {
@@ -679,7 +679,7 @@ public class SubqueryMapFromWithIncludeMembersSelectMemberFirstOrDefault : Integ
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSourceDetailsWrapper> InnerSourceDetailsWrapper { get; } = new List<InnerSourceDetailsWrapper>();
+        public List<InnerSourceDetailsWrapper> InnerSourceDetailsWrapper { get; } = [];
     }
     public class InnerSourceDetailsWrapper
     {
@@ -697,7 +697,7 @@ public class SubqueryMapFromWithIncludeMembersSelectMemberFirstOrDefault : Integ
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = new List<OtherInnerSourceDetails>();
+        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = [];
     }
     public class OtherInnerSourceDetails
     {
@@ -897,8 +897,8 @@ public class IncludeMembersMembersFirstOrDefaultWithNullSubstitute : Integration
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSource> InnerSources { get; set; } = new List<InnerSource>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSource> InnerSources { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     public class InnerSource
     {
@@ -1240,12 +1240,12 @@ public class IncludeMembersFirstOrDefaultWithIheritance : IntegrationTest<Includ
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSource> InnerSources { get; set; } = new List<InnerSource>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSource> InnerSources { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     public class SourceA : Source
     {
-        public List<InnerSourceA> InnerSourcesA { get; set; } = new List<InnerSourceA>();
+        public List<InnerSourceA> InnerSourcesA { get; set; } = [];
     }
     public class SourceB : Source
     {
@@ -1380,12 +1380,12 @@ public class IncludeMembersFirstOrDefaultMixedPolymorhism : IntegrationTest<Incl
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSource> InnerSources { get; set; } = new List<InnerSource>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSource> InnerSources { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     public class SourceA : Source
     {
-        public List<InnerSourceA> InnerSourcesA { get; set; } = new List<InnerSourceA>();
+        public List<InnerSourceA> InnerSourcesA { get; set; } = [];
     }
     public class SourceB : Source
     {
@@ -1524,12 +1524,12 @@ public class IncludeMembersFirstOrDefaultNoPolymorhism : IntegrationTest<Include
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSource> InnerSources { get; set; } = new List<InnerSource>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSource> InnerSources { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     public class SourceA : Source
     {
-        public List<InnerSourceA> InnerSourcesA { get; set; } = new List<InnerSourceA>();
+        public List<InnerSourceA> InnerSourcesA { get; set; } = [];
     }
     public class SourceB : Source
     {
@@ -1662,12 +1662,12 @@ public class IncludeMembersFirstOrDefaultWithMapFromExpressionWithIheritance : I
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSource> InnerSources { get; set; } = new List<InnerSource>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSource> InnerSources { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     public class SourceA : Source
     {
-        public List<InnerSourceA> InnerSourcesA { get; set; } = new List<InnerSourceA>();
+        public List<InnerSourceA> InnerSourcesA { get; set; } = [];
     }
     public class SourceB : Source
     {
@@ -1803,12 +1803,12 @@ public class IncludeMembersFirstOrDefaultWithSubqueryMapFromWithIheritance : Int
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSource> InnerSources { get; set; } = new List<InnerSource>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSource> InnerSources { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     public class SourceA : Source
     {
-        public List<InnerSourceA> InnerSourcesA { get; set; } = new List<InnerSourceA>();
+        public List<InnerSourceA> InnerSourcesA { get; set; } = [];
     }
     public class SourceB : Source
     {
@@ -1818,12 +1818,12 @@ public class IncludeMembersFirstOrDefaultWithSubqueryMapFromWithIheritance : Int
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSourceDetails> InnerSourceDetails { get; } = new List<InnerSourceDetails>();
+        public List<InnerSourceDetails> InnerSourceDetails { get; } = [];
     }
     public class InnerSourceA
     {
         public int Id { get; set; }
-        public List<InnerSourceDetailsA> InnerSourceDetails { get; } = new List<InnerSourceDetailsA>();
+        public List<InnerSourceDetailsA> InnerSourceDetails { get; } = [];
     }
 
     public class InnerSourceDetails
@@ -1842,7 +1842,7 @@ public class IncludeMembersFirstOrDefaultWithSubqueryMapFromWithIheritance : Int
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = new List<OtherInnerSourceDetails>();
+        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = [];
     }
     public class OtherInnerSourceDetails
     {
@@ -1974,12 +1974,12 @@ public class IncludeMembersSelectFirstOrDefaultWithSubqueryMapFromWithIheritance
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSourceWrapper> InnerSourceWrappers { get; set; } = new List<InnerSourceWrapper>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSourceWrapper> InnerSourceWrappers { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     public class SourceA : Source
     {
-        public List<InnerSourceWrapperA> InnerSourceWrappersA { get; set; } = new List<InnerSourceWrapperA>();
+        public List<InnerSourceWrapperA> InnerSourceWrappersA { get; set; } = [];
     }
     public class SourceB : Source
     {
@@ -1999,13 +1999,13 @@ public class IncludeMembersSelectFirstOrDefaultWithSubqueryMapFromWithIheritance
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSourceDetailsWrapper> InnerSourceDetailsWrapper { get; } = new List<InnerSourceDetailsWrapper>();
+        public List<InnerSourceDetailsWrapper> InnerSourceDetailsWrapper { get; } = [];
     }
     public class InnerSourceA
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSourceDetailsWrapperA> InnerSourceDetailsWrapperA { get; } = new List<InnerSourceDetailsWrapperA>();
+        public List<InnerSourceDetailsWrapperA> InnerSourceDetailsWrapperA { get; } = [];
     }
     public class InnerSourceDetailsWrapper
     {
@@ -2033,7 +2033,7 @@ public class IncludeMembersSelectFirstOrDefaultWithSubqueryMapFromWithIheritance
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = new List<OtherInnerSourceDetails>();
+        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = [];
     }
     public class OtherInnerSourceDetails
     {
@@ -2165,12 +2165,12 @@ public class SubqueryMapFromWithIncludeMembersFirstOrDefaultWithIheritance : Int
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSource> InnerSources { get; set; } = new List<InnerSource>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSource> InnerSources { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     public class SourceA : Source
     {
-        public List<InnerSourceA> InnerSourcesA { get; set; } = new List<InnerSourceA>();
+        public List<InnerSourceA> InnerSourcesA { get; set; } = [];
     }
     public class SourceB : Source
     {
@@ -2180,13 +2180,13 @@ public class SubqueryMapFromWithIncludeMembersFirstOrDefaultWithIheritance : Int
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSourceDetails> InnerSourceDetails { get; } = new List<InnerSourceDetails>();
+        public List<InnerSourceDetails> InnerSourceDetails { get; } = [];
     }
     public class InnerSourceA
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSourceDetailsA> InnerSourceDetailsA { get; } = new List<InnerSourceDetailsA>();
+        public List<InnerSourceDetailsA> InnerSourceDetailsA { get; } = [];
     }
     public class InnerSourceDetails
     {
@@ -2204,7 +2204,7 @@ public class SubqueryMapFromWithIncludeMembersFirstOrDefaultWithIheritance : Int
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = new List<OtherInnerSourceDetails>();
+        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = [];
     }
     public class OtherInnerSourceDetails
     {
@@ -2339,12 +2339,12 @@ public class SubqueryMapFromWithIncludeMembersSelectFirstOrDefaultWithIheritance
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSource> InnerSources { get; set; } = new List<InnerSource>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSource> InnerSources { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     public class SourceA : Source
     {
-        public List<InnerSourceA> InnerSourcesA { get; set; } = new List<InnerSourceA>();
+        public List<InnerSourceA> InnerSourcesA { get; set; } = [];
     }
     public class SourceB : Source
     {
@@ -2354,13 +2354,13 @@ public class SubqueryMapFromWithIncludeMembersSelectFirstOrDefaultWithIheritance
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSourceDetails> InnerSourceDetails { get; } = new List<InnerSourceDetails>();
+        public List<InnerSourceDetails> InnerSourceDetails { get; } = [];
     }
     public class InnerSourceA
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSourceDetailsA> InnerSourceDetailsA { get; } = new List<InnerSourceDetailsA>();
+        public List<InnerSourceDetailsA> InnerSourceDetailsA { get; } = [];
     }
     public class InnerSourceDetails
     {
@@ -2378,7 +2378,7 @@ public class SubqueryMapFromWithIncludeMembersSelectFirstOrDefaultWithIheritance
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = new List<OtherInnerSourceDetails>();
+        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = [];
     }
     public class OtherInnerSourceDetails
     {
@@ -2513,12 +2513,12 @@ public class SubqueryMapFromWithIncludeMembersSelectMemberFirstOrDefaultWithIher
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSourceWrapper> InnerSourceWrappers { get; set; } = new List<InnerSourceWrapper>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSourceWrapper> InnerSourceWrappers { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     public class SourceA : Source
     {
-        public List<InnerSourceWrapperA> InnerSourceWrappersA { get; set; } = new List<InnerSourceWrapperA>();
+        public List<InnerSourceWrapperA> InnerSourceWrappersA { get; set; } = [];
     }
     public class SourceB : Source
     {
@@ -2538,13 +2538,13 @@ public class SubqueryMapFromWithIncludeMembersSelectMemberFirstOrDefaultWithIher
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSourceDetailsWrapper> InnerSourceDetailsWrapper { get; } = new List<InnerSourceDetailsWrapper>();
+        public List<InnerSourceDetailsWrapper> InnerSourceDetailsWrapper { get; } = [];
     }
     public class InnerSourceA
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSourceDetailsWrapperA> InnerSourceDetailsWrapperA { get; } = new List<InnerSourceDetailsWrapperA>();
+        public List<InnerSourceDetailsWrapperA> InnerSourceDetailsWrapperA { get; } = [];
     }
     public class InnerSourceDetailsWrapper
     {
@@ -2572,7 +2572,7 @@ public class SubqueryMapFromWithIncludeMembersSelectMemberFirstOrDefaultWithIher
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = new List<OtherInnerSourceDetails>();
+        public List<OtherInnerSourceDetails> OtherInnerSourceDetails { get; } = [];
     }
     public class OtherInnerSourceDetails
     {
@@ -2932,12 +2932,12 @@ public class IncludeMembersMembersFirstOrDefaultWithNullSubstituteWithIheritance
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSource> InnerSources { get; set; } = new List<InnerSource>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSource> InnerSources { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     public class SourceA : Source
     {
-        public List<InnerSourceA> InnerSourcesA { get; set; } = new List<InnerSourceA>();
+        public List<InnerSourceA> InnerSourcesA { get; set; } = [];
     }
     public class SourceB : Source
     {
@@ -3164,7 +3164,7 @@ public class IncludeOnlySelectedMembersWithIheritance : IntegrationTest<IncludeO
     {
         public string A { get; set; }
         public int ImNotIncludedA { get; set; }
-        public List<InnerSourceA> InnerSourcesA { get; set; } = new List<InnerSourceA>();
+        public List<InnerSourceA> InnerSourcesA { get; set; } = [];
     }
 
     public class InnerSourceA
@@ -3280,11 +3280,11 @@ public class IncludeMultipleExpressionsWithIheritance : IntegrationTest<IncludeM
         public InnerSource InnerSource { get; set; }
         public OtherInnerSource OtherInnerSource { get; set; }
         public int ImNotIncluded { get; set; }
-        public List<InnerSourceA> InnerSourcesA { get; set; } = new List<InnerSourceA>();
+        public List<InnerSourceA> InnerSourcesA { get; set; } = [];
     }
     public class SourceA : Source
     {
-        public List<InnerSourceA> InnerSourcesAFallback { get; set; } = new List<InnerSourceA>();
+        public List<InnerSourceA> InnerSourcesAFallback { get; set; } = [];
     }
 
     public class InnerSourceA

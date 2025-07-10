@@ -27,8 +27,8 @@
                 {
                     new Source
                     {
-                        Value1 = new byte[] {1, 2, 3},
-                        Value2 = new[] {4, 5, 6}
+                        Value1 = [1, 2, 3],
+                        Value2 = [4, 5, 6]
                     }
                 };
 

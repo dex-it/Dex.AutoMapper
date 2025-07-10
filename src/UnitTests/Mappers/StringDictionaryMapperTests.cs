@@ -226,7 +226,7 @@ public class When_mapping_from_StringDictionary_to_existing_destination : AutoMa
         private int _z = 300;
         public int Z { get { return _z + 30; } }
         public int Value { get; set; }
-        public Collection<int> Integers { get; } = new();
+        public Collection<int> Integers { get; } = [];
     }
 
     public class SomeOne : SomeBase

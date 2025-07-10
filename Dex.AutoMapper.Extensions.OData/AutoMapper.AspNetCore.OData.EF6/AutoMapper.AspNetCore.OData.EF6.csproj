@@ -1,0 +1,84 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>AutoMapper.AspNet.OData</RootNamespace>
+    <PackageId>AutoMapper.AspNetCore.OData.EF6</PackageId>
+    <Description>Creates LINQ expressions from ODataQueryOptions and executes the query.</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>Supporting AutoMapper v14 (EF Core only).</PackageReleaseNotes>
+    <PackageTags>linq expressions odata efcore</PackageTags>
+	<PackageIcon>icon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/AutoMapper/AutoMapper.Extensions.OData</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/AutoMapper/AutoMapper.Extensions.OData</PackageProjectUrl>
+    <AssemblyOriginatorKeyFile>..\AutoMapper.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\icon.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\AsyncSettings.cs" Link="AsyncSettings.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\Constants.cs" Link="Constants.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\CustomMethodCache.cs" Link="CustomMethodCache.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\EdmTypeStructure.cs" Link="EdmTypeStructure.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\Expansions\DefaultExpansionsBuilder.cs" Link="Expansions\DefaultExpansionsBuilder.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\Expansions\Expansion.cs" Link="Expansions\Expansion.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\Expansions\ExpansionsHelper.cs" Link="Expansions\ExpansionsHelper.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\FilterHelper.cs" Link="FilterHelper.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\LinqExtensions.cs" Link="LinqExtensions.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\ODataQueryContextExtentions.cs" Link="ODataQueryContextExtentions.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\ODataQueryOptionsExtensions.cs" Link="ODataQueryOptionsExtensions.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\ODataSettings.cs" Link="ODataSettings.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\OrderBySetting.cs" Link="OrderBySetting.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\ProjectionSettings.cs" Link="ProjectionSettings.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\Properties\Resources.Designer.cs" Link="Properties\Resources.Designer.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\QuerySettings.cs" Link="QuerySettings.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\TypeExtensions.cs" Link="TypeExtensions.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\Visitors\ChildCollectionFilterUpdater.cs" Link="Visitors\ChildCollectionFilterUpdater.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\Visitors\ChildCollectionOrderByUpdater.cs" Link="Visitors\ChildCollectionOrderByUpdater.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\Visitors\FilterAppender.cs" Link="Visitors\FilterAppender.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\Visitors\MethodAppender.cs" Link="Visitors\MethodAppender.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\Visitors\ProjectionVisitor.cs" Link="Visitors\ProjectionVisitor.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\Visitors\ParameterReplacer.cs" Link="Visitors\ParameterReplacer.cs" />
+    <Compile Include="..\AutoMapper.AspNetCore.OData.EFCore\Visitors\ReplaceExpressionVisitor.cs" Link="Visitors\ReplaceExpressionVisitor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\AutoMapper.AspNetCore.OData.EFCore\Properties\Resources.resx" Link="Properties\Resources.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.5.1" />
+    <PackageReference Include="LogicBuilder.Expressions.Utils" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OData" Version="9.1.1" />
+    <PackageReference Include="MinVer" Version="6.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+    <PackageReference Include="System.Drawing.Common" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Expansions\" />
+    <Folder Include="Visitors\" />
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+</Project>

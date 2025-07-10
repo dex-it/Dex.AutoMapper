@@ -5,7 +5,7 @@ namespace AutoMapper.UnitTests
     public static class ExpressionBuilderExtensions
     {
         public static Expression<Func<TSource, TDestination>> GetMapExpression<TSource, TDestination>(this IProjectionBuilder expressionBuilder) =>
-            (Expression<Func<TSource, TDestination>>)expressionBuilder.GetProjection(typeof(TSource), typeof(TDestination), null, Array.Empty<MemberPath>()).Projection;
+            (Expression<Func<TSource, TDestination>>)expressionBuilder.GetProjection(typeof(TSource), typeof(TDestination), null, []).Projection;
     }
     public class SimpleProductDto
     {
@@ -123,8 +123,8 @@ namespace AutoMapper.UnitTests
             _extendedProductConversionLinq = _config.Internal().ProjectionBuilder.GetMapExpression<Product, ExtendedProductDto>();
             _abstractProductConversionLinq = _config.Internal().ProjectionBuilder.GetMapExpression<Product, AbstractProductDto>();
 
-            _products = new List<Product>()
-            {
+            _products =
+            [
                 new Product
                 {
                     Name = "Foo",
@@ -136,22 +136,21 @@ namespace AutoMapper.UnitTests
                             Name = "Baz"
                         }
                     },
-                    BillOfMaterials = new List<BillOfMaterials>
-                    {
+                    BillOfMaterials =
+                    [
                         new BillOfMaterials
                         {
                             BillOfMaterialsID = 5
                         }
-                    }
-                    ,
-                    Types = new List<ProductType>
-                                {
-                                    new ProductType() { Name = "A" },
-                                    new ProductType() { Name = "B" },
-                                    new ProductType() { Name = "A" }
-                                }
+                    ],
+                    Types =
+                    [
+                        new ProductType() {Name = "A"},
+                        new ProductType() {Name = "B"},
+                        new ProductType() {Name = "A"}
+                    ]
                 }
-            };
+            ];
             var queryable = _products.AsQueryable();
 
             _simpleProducts = queryable.Select(_simpleProductConversionLinq).ToList();
@@ -176,12 +175,12 @@ namespace AutoMapper.UnitTests
             _extendedProducts[0].BOM.Count.ShouldBe(1);
             _extendedProducts[0].BOM[0].BillOfMaterialsID.ShouldBe(5);
         }
-           
+
         [Fact]
         public void Should_use_extension_methods()
         {
 
-                
+
             var queryable = _products.AsQueryable();
 
             var simpleProducts = queryable.ProjectTo<SimpleProductDto>(_config).ToList();
@@ -218,14 +217,14 @@ namespace AutoMapper.UnitTests
             public virtual B B { get; set; }
         }
 
-        public class B
+        public sealed class B
         {
             public B()
             {
                 BP2 = new HashSet<A>();
             }
             public int BP1 { get; set; }
-            public virtual ICollection<A> BP2 { get; set; }
+            public ICollection<A> BP2 { get; set; }
         }
 
         public class AEntity
@@ -234,14 +233,14 @@ namespace AutoMapper.UnitTests
             public string AP2 { get; set; }
             public virtual BEntity B { get; set; }
         }
-        public class BEntity
+        public sealed class BEntity
         {
             public BEntity()
             {
                 BP2 = new HashSet<AEntity>();
             }
             public int BP1 { get; set; }
-            public virtual ICollection<AEntity> BP2 { get; set; }
+            public ICollection<AEntity> BP2 { get; set; }
         }
 
         public class C

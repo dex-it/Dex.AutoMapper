@@ -105,7 +105,7 @@ namespace AutoMapper.UnitTests
             [Fact]
             public void MapsEnumerableTypes()
             {
-                Person[] personArr = new[] {new Person() {Name = "Name"}};
+                Person[] personArr = [new Person() {Name = "Name"}];
                 People people = new People(personArr);
                 
                 var pmc = Mapper.Map<People, List<PersonModel>>(people);

@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Add AutoMapper Myget Source
+      run: dotnet nuget add source https://www.myget.org/F/automapperdev/api/v3/index.json -n automappermyget
+
+    - name: Test
+      run: dotnet test --configuration Release --verbosity normal
+
+    - name: Pack and push
+      env:
+        PROJECT_NAME: AutoMapper.Extensions.ExpressionMapping
+        DEPLOY_PACKAGE_URL: https://www.myget.org/F/automapperdev/api/v3/index.json
+        DEPLOY_PACKAGE_API_KEY: ${{ secrets.MYGET_CI_API_KEY }}
+        REPO: ${{ github.repository }}
+        REPO_OWNER: ${{ github.repository_owner }}
+      run: ./Pack_Push.ps1
+      shell: pwsh

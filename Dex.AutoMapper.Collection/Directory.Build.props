@@ -1,0 +1,10 @@
+<Project>
+  <Import Project="version.props" />
+
+  <PropertyGroup>
+    <TestSDKVersion>15.5.0</TestSDKVersion>
+    <xUnitVersion>2.0.3</xUnitVersion>
+    <EffortVersion>2.2.1</EffortVersion>
+  </PropertyGroup>
+
+</Project>

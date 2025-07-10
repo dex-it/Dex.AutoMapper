@@ -4,7 +4,7 @@ public class Entity25 : BaseEntity
 {
     public Entity25()
     {
-        this.Entities19 = new Entity19();
+        Entities19 = new Entity19();
     }
 
     public Entity19 Entities19 { get; set; }

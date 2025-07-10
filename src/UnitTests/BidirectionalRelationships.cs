@@ -212,14 +212,14 @@ public class When_mapping_to_a_destination_with_a_bidirectional_parent_one_to_ma
             ID = 2
         };
 
-        List<ChildModel> childModels = new List<ChildModel>
-        {
+        List<ChildModel> childModels =
+        [
             new ChildModel
             {
                 ID = 1,
                 Parent = _parent
             }
-        };
+        ];
 
         Dictionary<int, ParentModel> parents = childModels.ToDictionary(x => x.ID, x => x.Parent);
 
@@ -429,7 +429,7 @@ public class When_mapping_with_a_bidirectional_relationship_that_includes_arrays
     [Fact]
     public void Should_map_successfully()
     {
-        object.ReferenceEquals(_dtoParent.Children[0].Parents[0], _dtoParent).ShouldBeTrue();
+        ReferenceEquals(_dtoParent.Children[0].Parents[0], _dtoParent).ShouldBeTrue();
     }
 
     public class Parent : IEquatable<Parent>
@@ -443,7 +443,7 @@ public class When_mapping_with_a_bidirectional_relationship_that_includes_arrays
         public Parent()
         {
             Id = Guid.NewGuid();
-            Children = new List<Child>();
+            Children = [];
         }
         public bool Equals(Parent other) => throw new NotImplementedException();
         public override bool Equals(object obj) => throw new NotImplementedException();
@@ -461,7 +461,7 @@ public class When_mapping_with_a_bidirectional_relationship_that_includes_arrays
         public Child()
         {
             Id = Guid.NewGuid();
-            Parents = new List<Parent>();
+            Parents = [];
         }
 
         public bool Equals(Child other)
@@ -495,7 +495,7 @@ public class When_mapping_with_a_bidirectional_relationship_that_includes_arrays
 
         public ParentDto()
         {
-            Children = new List<ChildDto>();
+            Children = [];
         }
     }
 
@@ -509,7 +509,7 @@ public class When_mapping_with_a_bidirectional_relationship_that_includes_arrays
 
         public ChildDto()
         {
-            Parents = new List<ParentDto>();
+            Parents = [];
         }
     }
 }

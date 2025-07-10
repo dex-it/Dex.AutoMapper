@@ -27,7 +27,8 @@ public class NullConstructorParameterName
               TypeAttributes.AutoLayout
             , null);
         typeBuilder.DefineDefaultConstructor(MethodAttributes.Public | MethodAttributes.SpecialName | MethodAttributes.RTSpecialName);
-        var cBuilder = typeBuilder.DefineConstructor(MethodAttributes.Public | MethodAttributes.SpecialName | MethodAttributes.RTSpecialName, CallingConventions.Standard, new []{ typeof(int) });
+        var cBuilder = typeBuilder.DefineConstructor(MethodAttributes.Public | MethodAttributes.SpecialName | MethodAttributes.RTSpecialName, CallingConventions.Standard,
+            [typeof(int)]);
         ILGenerator myConstructorIL = cBuilder.GetILGenerator();
         myConstructorIL.Emit(OpCodes.Ret);
         var type = typeBuilder.CreateType();

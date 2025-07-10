@@ -54,7 +54,7 @@ public class CyclesWithInheritance : AutoMapperSpecBase
         var flowStep = new FlowStep();
         var flowDecision = new FlowDecision { False = flowStep, True = flowStep };
         flowStep.Next = flowDecision;
-        var source = new FlowChart { Nodes = new FlowNode[] { flowStep, flowDecision } };
+        var source = new FlowChart { Nodes = [flowStep, flowDecision]};
         var dest = Map<FlowChartModel>(source);
     }
 }
@@ -105,7 +105,7 @@ public class When_the_source_has_cyclical_references_with_dynamic_map : AutoMapp
         var component = new CComponentDefinitionDTO<int>();
         var type = new CDataTypeDTO<int>();
         var field = new CFieldDefinitionDTO<int> { ComponentDefinition = component, DataType = type };
-        type.FieldDefinitionList = component.FieldDefinitionList = new List<CFieldDefinitionDTO<int>> { field };
+        type.FieldDefinitionList = component.FieldDefinitionList = [field];
         var fieldModel = Mapper.Map<CFieldDefinitionModel<int>>(field);
         fieldModel.ShouldBeSameAs(fieldModel.ComponentDefinition.FieldDefinitionList[0]);
         fieldModel.ShouldBeSameAs(fieldModel.DataType.FieldDefinitionList[0]);
@@ -641,7 +641,7 @@ public class When_mapping_with_a_bidirectional_relationship_that_includes_arrays
     [Fact]
     public void Should_map_successfully()
     {
-        object.ReferenceEquals(_dtoParent.Children[0].Parents[0], _dtoParent).ShouldBeTrue();
+        ReferenceEquals(_dtoParent.Children[0].Parents[0], _dtoParent).ShouldBeTrue();
     }
 
     public class Parent
@@ -655,7 +655,7 @@ public class When_mapping_with_a_bidirectional_relationship_that_includes_arrays
         public Parent()
         {
             Id = Guid.NewGuid();
-            Children = new List<Child>();
+            Children = [];
         }
 
         public bool Equals(Parent other)
@@ -690,7 +690,7 @@ public class When_mapping_with_a_bidirectional_relationship_that_includes_arrays
         public Child()
         {
             Id = Guid.NewGuid();
-            Parents = new List<Parent>();
+            Parents = [];
         }
 
         public bool Equals(Child other)
@@ -724,7 +724,7 @@ public class When_mapping_with_a_bidirectional_relationship_that_includes_arrays
 
         public ParentDto()
         {
-            Children = new List<ChildDto>();
+            Children = [];
         }
     }
 
@@ -738,7 +738,7 @@ public class When_mapping_with_a_bidirectional_relationship_that_includes_arrays
 
         public ChildDto()
         {
-            Parents = new List<ParentDto>();
+            Parents = [];
         }
     }
 }

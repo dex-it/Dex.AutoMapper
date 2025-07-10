@@ -283,10 +283,10 @@ public sealed record IncludedMember(TypeMap TypeMap, LambdaExpression MemberExpr
         }
         return new(other.TypeMap, Chain(other.MemberExpression, other, configuration), other.Variable, Chain(MemberExpression, other.MemberExpression));
     }
-    public static LambdaExpression Chain(LambdaExpression customSource, LambdaExpression lambda) => 
+    public static LambdaExpression Chain(LambdaExpression customSource, LambdaExpression lambda) =>
         Lambda(lambda.ReplaceParameters(customSource.Body), customSource.Parameters);
     public LambdaExpression Chain(LambdaExpression lambda) => Chain(lambda, null, null);
-    LambdaExpression Chain(LambdaExpression lambda, IncludedMember includedMember, IGlobalConfiguration configuration) => 
+    LambdaExpression Chain(LambdaExpression lambda, IncludedMember includedMember, IGlobalConfiguration configuration) =>
         Lambda(lambda.ReplaceParameters(Variable).NullCheck(configuration, includedMember: includedMember), lambda.Parameters);
     public bool Equals(IncludedMember other) => TypeMap == other?.TypeMap;
     public override int GetHashCode() => TypeMap.GetHashCode();

@@ -4,7 +4,7 @@ public class Entity6 : BaseEntity
 {
     public Entity6()
     {
-        this.Entities12 = new Entity12();
+        Entities12 = new Entity12();
     }
 
     public Guid Entity5Id { get; set; }

@@ -59,10 +59,10 @@ public class NestedExplicitExpandWithFields : IntegrationTest<NestedExplicitExpa
     private void Check(Class1DTO[] dtos)
     {
         dtos.Length.ShouldBe(3);
-        dtos.Select(d => d.IdDTO).ShouldBe(new[] { 1, 2, 3 });
-        dtos.Select(d => d.Class2DTO.IdDTO).ShouldBe(new[] { 1, 2, 3 });
-        dtos.Select(d => d.Class2DTO.Class3DTO.IdDTO).ShouldBe(new[] { 1, 2, 3 });
-        dtos.Select(d => d.Class2DTO.Class3DTO.Class2DTO).ShouldBe(new Class2DTO[] { null, null, null });
+        dtos.Select(d => d.IdDTO).ShouldBe([1, 2, 3]);
+        dtos.Select(d => d.Class2DTO.IdDTO).ShouldBe([1, 2, 3]);
+        dtos.Select(d => d.Class2DTO.Class3DTO.IdDTO).ShouldBe([1, 2, 3]);
+        dtos.Select(d => d.Class2DTO.Class3DTO.Class2DTO).ShouldBe([null, null, null]);
     }
 
     public class TestContext : LocalDbContext
@@ -112,7 +112,7 @@ public class NestedExplicitExpandWithFields : IntegrationTest<NestedExplicitExpa
 
     public class Class1
     {
-        [System.ComponentModel.DataAnnotations.Key]
+        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
 
@@ -121,7 +121,7 @@ public class NestedExplicitExpandWithFields : IntegrationTest<NestedExplicitExpa
 
     public class Class2
     {
-        [System.ComponentModel.DataAnnotations.Key]
+        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
 
@@ -130,7 +130,7 @@ public class NestedExplicitExpandWithFields : IntegrationTest<NestedExplicitExpa
 
     public class Class3
     {
-        [System.ComponentModel.DataAnnotations.Key, System.ComponentModel.DataAnnotations.Schema.ForeignKeyAttribute("Class2")]
+        [Key, ForeignKeyAttribute("Class2")]
         public int Id { get; set; }
         public string Name { get; set; }
 

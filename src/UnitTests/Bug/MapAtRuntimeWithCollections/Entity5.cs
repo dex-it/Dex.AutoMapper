@@ -4,9 +4,9 @@ public class Entity5 : BaseEntity
 {
     public Entity5()
     {
-        this.Entities6 = new List<Entity6>();
-        this.TimeSlots = new List<Entity23>();
-        this.Entities5 = new List<Entity5>();
+        Entities6 = [];
+        TimeSlots = new List<Entity23>();
+        Entities5 = new List<Entity5>();
     }
 
     public Guid? Entity8Id { get; set; }

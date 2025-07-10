@@ -3,7 +3,7 @@
 public class CollectionBaseClassGetConvention : AutoMapperSpecBase
 {
     Destination _destination;
-    static int[] SomeCollection = new[] { 1, 2, 3 };
+    static int[] SomeCollection = [1, 2, 3];
 
     public abstract class SourceBase
     {

@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <Authors>BlaiseD</Authors>
+    <WarningsAsErrors>true</WarningsAsErrors>
+    <NoWarn>$(NoWarn);1701;1702;1591</NoWarn>
+  </PropertyGroup>
+</Project>

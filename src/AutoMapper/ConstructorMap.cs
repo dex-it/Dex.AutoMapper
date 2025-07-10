@@ -65,7 +65,7 @@ public sealed class ConstructorMap
     }
 }
 [EditorBrowsable(EditorBrowsableState.Never)]
-public class ConstructorParameterMap : MemberMap
+public sealed class ConstructorParameterMap : MemberMap
 {
     public ConstructorParameterMap(TypeMap typeMap, ParameterInfo parameter, MemberInfo[] sourceMembers) : base(typeMap, parameter.ParameterType)
     {

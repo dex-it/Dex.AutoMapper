@@ -229,11 +229,11 @@ public class When_mapping_nested_context_items : AutoMapperSpecBase
         var door = new Door();
         var fromGarage = new FromGarage
         {
-            FromCars = new List<FromCar>
-            {
+            FromCars =
+            [
                 new FromCar {Door = door, Id = 2, Name = "Volvo"},
-                new FromCar {Door = door, Id = 3, Name = "Hyundai"},
-            }
+                new FromCar {Door = door, Id = 3, Name = "Hyundai"}
+            ]
         };
 
         var toGarage = Mapper.Map<ToGarage>(fromGarage, opts =>

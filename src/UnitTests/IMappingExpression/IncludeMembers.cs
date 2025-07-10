@@ -49,8 +49,8 @@ public class IncludeMembersWrapperFirstOrDefault : AutoMapperSpecBase
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSourceWrapper> InnerSources { get; set; } = new List<InnerSourceWrapper>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSourceWrapper> InnerSources { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     class InnerSourceWrapper
     {
@@ -117,8 +117,8 @@ public class IncludeMembersFirstOrDefault : AutoMapperSpecBase
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSource> InnerSources { get; set; } = new List<InnerSource>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSource> InnerSources { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     class InnerSource
     {
@@ -175,8 +175,8 @@ public class IncludeMembersFirstOrDefaultReverseMap : AutoMapperSpecBase
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<InnerSource> InnerSources { get; set; } = new List<InnerSource>();
-        public List<OtherInnerSource> OtherInnerSources { get; set; } = new List<OtherInnerSource>();
+        public List<InnerSource> InnerSources { get; set; } = [];
+        public List<OtherInnerSource> OtherInnerSources { get; set; } = [];
     }
     class InnerSource
     {

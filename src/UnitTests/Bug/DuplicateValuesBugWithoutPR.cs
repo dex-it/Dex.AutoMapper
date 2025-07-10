@@ -9,8 +9,8 @@ public class DuplicateValuesIssue
 
         public void AddChild(SourceObject childObject)
         {
-            if(this.Children == null)
-                this.Children = new List<SourceObject>();
+            if(Children == null)
+                Children = new List<SourceObject>();
 
             Children.Add(childObject);
         }
@@ -28,8 +28,8 @@ public class DuplicateValuesIssue
 
         public void AddChild(DestObject childObject)
         {
-            if(this.Children == null)
-                this.Children = new List<DestObject>();
+            if(Children == null)
+                Children = new List<DestObject>();
 
             Children.Add(childObject);
         }

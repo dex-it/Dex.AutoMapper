@@ -51,7 +51,7 @@ public static class ProxyGenerator
             var eventAccessor = typeBuilder.DefineMethod(method.Name,
                 MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.SpecialName |
                 MethodAttributes.NewSlot | MethodAttributes.Virtual, typeof(void),
-                new[] { typeof(PropertyChangedEventHandler) });
+                [typeof(PropertyChangedEventHandler)]);
             var addIl = eventAccessor.GetILGenerator();
             addIl.Emit(OpCodes.Ldarg_0);
             addIl.Emit(OpCodes.Dup);

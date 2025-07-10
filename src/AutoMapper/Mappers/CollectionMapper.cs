@@ -49,8 +49,8 @@ public sealed class CollectionMapper : IObjectMapper
             var sourceElementType = GetEnumerableElementType(sourceType);
             if (destinationCollectionType == null || (sourceType == sourceElementType && destinationType == destinationElementType))
             {
-                return destinationType.IsAssignableFrom(sourceType) ? 
-                            sourceExpression : 
+                return destinationType.IsAssignableFrom(sourceType) ?
+                            sourceExpression :
                             Throw(Constant(new NotSupportedException($"Unknown collection. Consider a custom type converter from {sourceType} to {destinationType}.")), destinationType);
             }
             var itemParam = Parameter(sourceElementType, "item");
@@ -234,7 +234,7 @@ public sealed class CollectionMapper : IObjectMapper
                 }
                 return Call(ToArrayMethod.MakeGenericMethod(sourceElementType), sourceExpression);
             }
-            bool MustMap(Type sourceType, Type destinationType) => !destinationType.IsAssignableFrom(sourceType) || 
+            bool MustMap(Type sourceType, Type destinationType) => !destinationType.IsAssignableFrom(sourceType) ||
                 configuration.FindTypeMapFor(sourceType, destinationType) != null;
         }
     }

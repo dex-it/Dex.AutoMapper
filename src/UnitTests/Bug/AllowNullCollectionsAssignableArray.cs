@@ -23,7 +23,7 @@ public class AllowNullCollectionsAssignableArray : AutoMapperSpecBase
     {
         _destination = new Destination
         {
-            ArrayOfItems = new string[] { "Red Fish", "Blue Fish" },
+            ArrayOfItems = ["Red Fish", "Blue Fish"],
         };
         Mapper.Map(new Source(), _destination);
     }

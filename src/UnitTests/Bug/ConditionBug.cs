@@ -13,7 +13,7 @@
             {
                 public Source()
                 {
-                    Value = new List<SubSource>();
+                    Value = [];
                 }
 
                 public List<SubSource> Value { get; set; }

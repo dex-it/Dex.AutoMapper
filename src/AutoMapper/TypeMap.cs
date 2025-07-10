@@ -77,7 +77,7 @@ public sealed class TypeMap
     public MemberList ConfiguredMemberList
     {
         get => (_details?.ConfiguredMemberList).GetValueOrDefault();
-        set 
+        set
         {
             if (_details == null && value == default)
             {

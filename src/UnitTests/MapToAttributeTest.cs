@@ -20,7 +20,7 @@ public class MapToAttribute : SourceToDestinationMapperAttribute
 }
 public class SourceToDestinationNameMapperAttributesMember : ISourceToDestinationNameMapper
 {
-    private static readonly SourceMember[] Empty = new SourceMember[0];
+    private static readonly SourceMember[] Empty = [];
     private readonly Dictionary<TypeDetails, SourceMember[]> _allSourceMembers = new Dictionary<TypeDetails, SourceMember[]>();
 
     public MemberInfo GetSourceMember(TypeDetails sourceTypeDetails, Type destType, Type destMemberType, string nameToSearch)

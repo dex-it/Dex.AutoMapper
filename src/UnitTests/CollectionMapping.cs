@@ -84,7 +84,7 @@ public class NonPublicEnumeratorCurrent : AutoMapperSpecBase
     protected override MapperConfiguration CreateConfiguration() => new(c => 
         c.CreateMap<Source, Destination>().ForMember(d=>d.Value, o=>o.MapFrom(_=>new MyJObject { 1, 2, 3 })));
     [Fact]
-    public void Should_work() => Map<Destination>(new Source()).Value.ShouldBe(new[] { 1, 2, 3 });
+    public void Should_work() => Map<Destination>(new Source()).Value.ShouldBe([1, 2, 3]);
 }
 public class ImmutableCollection : AutoMapperSpecBase
 {
@@ -424,7 +424,7 @@ public class When_mapping_to_existing_observable_collection : AutoMapperSpecBase
     {
         public CollectionHolder()
         {
-            Observable = new ObservableCollection<List<int>>();
+            Observable = [];
         }
 
         public ObservableCollection<List<int>> Observable { get; set; }
@@ -434,7 +434,7 @@ public class When_mapping_to_existing_observable_collection : AutoMapperSpecBase
     {
         public CollectionHolderDto()
         {
-            Observable = new List<List<int>>();
+            Observable = [];
         }
 
         public List<List<int>> Observable { get; set; }
@@ -511,7 +511,7 @@ public class When_mapping_to_readonly_property_as_IEnumerable_and_existing_desti
 {
     public class Source
     {
-        private readonly List<string> _myCollection = new List<string> { "one", "two" };
+        private readonly List<string> _myCollection = ["one", "two"];
 
         public string[] MyCollection => _myCollection.ToArray();
     }
@@ -532,7 +532,7 @@ public class When_mapping_to_readonly_property_as_IEnumerable_and_existing_desti
     public void Should_map_ok()
     {
         Mapper.Map(new Source(), new Destination())
-            .MyCollection.SequenceEqual(new[] { "one", "two" }).ShouldBeTrue();
+            .MyCollection.SequenceEqual(["one", "two"]).ShouldBeTrue();
     }
 }
 
@@ -540,7 +540,7 @@ public class When_mapping_to_readonly_collection_without_setter : AutoMapperSpec
 {
     public class Source
     {
-        public IEnumerable<string> MyCollection { get; } = new[] { "one", "two" };
+        public IEnumerable<string> MyCollection { get; } = ["one", "two"];
     }
     public class Destination
     {
@@ -558,7 +558,7 @@ public class When_mapping_to_readonly_property_UseDestinationValue : AutoMapperS
 {
     public class Source
     {
-        private readonly List<string> _myCollection = new List<string> { "one", "two" };
+        private readonly List<string> _myCollection = ["one", "two"];
 
         public string[] MyCollection => _myCollection.ToArray();
     }
@@ -579,7 +579,7 @@ public class When_mapping_to_readonly_property_UseDestinationValue : AutoMapperS
     public void Should_map_ok()
     {
         Mapper.Map<Destination>(new Source())
-            .MyCollection.SequenceEqual(new[] { "one", "two" }).ShouldBeTrue();
+            .MyCollection.SequenceEqual(["one", "two"]).ShouldBeTrue();
     }
 }
 
@@ -587,7 +587,7 @@ public class When_mapping_to_readonly_property_as_IEnumerable : AutoMapperSpecBa
 {
     public class Source
     {
-        private readonly List<string> _myCollection = new List<string> { "one", "two" };
+        private readonly List<string> _myCollection = ["one", "two"];
 
         public string[] MyCollection => _myCollection.ToArray();
     }
@@ -609,7 +609,7 @@ public class When_mapping_to_readonly_property_as_IEnumerable : AutoMapperSpecBa
     public void Should_map_ok()
     {
         Mapper.Map<Destination>(new Source())
-            .MyCollection.SequenceEqual(new[] { "one", "two" }).ShouldBeTrue();
+            .MyCollection.SequenceEqual(["one", "two"]).ShouldBeTrue();
     }
 }
 
@@ -679,7 +679,7 @@ public class When_mapping_to_custom_collection_type : AutoMapperSpecBase
     public void Should_map_ok()
     {
         var items = Enumerable.Range(1, 10).Select(i => i.ToString()).ToArray();
-        Mapper.Map<DestItem>(new SourceItem { ShipsTo = new List<string>(items) })
+        Mapper.Map<DestItem>(new SourceItem { ShipsTo = [..items]})
             .ShipsTo.Cast<string>().SequenceEqual(items).ShouldBeTrue();
     }
 }
@@ -766,7 +766,7 @@ public class When_passing_a_not_empty_collection : AutoMapperSpecBase
 
     class Destination
     {
-        public List<DestinationItem> Items { get; } = new List<DestinationItem> { new DestinationItem() };
+        public List<DestinationItem> Items { get; } = [new DestinationItem()];
     }
 
     class DestinationItem
@@ -903,11 +903,11 @@ public class CollectionMapping
         var dto = new MasterDto
         {
             Id = 1,
-            Details = new[]
-            {
+            Details =
+            [
                 new DetailDto {Id = 2},
-                new DetailDto {Id = 3},
-            }
+                new DetailDto {Id = 3}
+            ]
         };
 
         var master = new MasterWithCollection(new List<Detail>());
@@ -932,11 +932,11 @@ public class CollectionMapping
         var dto = new MasterDto
         {
             Id = 1,
-            Details = new[]
-            {
+            Details =
+            [
                 new DetailDto {Id = 2},
-                new DetailDto {Id = 3},
-            }
+                new DetailDto {Id = 3}
+            ]
         };
 
         var master = new MasterWithCollection(new HashSet<Detail>());
@@ -962,11 +962,11 @@ public class CollectionMapping
         var dto = new MasterDto
         {
             Id = 1,
-            Details = new[]
-            {
+            Details =
+            [
                 new DetailDto {Id = 2},
-                new DetailDto {Id = 3},
-            }
+                new DetailDto {Id = 3}
+            ]
         };
 
         var master = new MasterWithCollection(new HashSet<Detail>());
@@ -993,11 +993,11 @@ public class CollectionMapping
         var dto = new MasterDto
         {
             Id = 1,
-            Details = new[]
-            {
+            Details =
+            [
                 new DetailDto {Id = 2},
-                new DetailDto {Id = 3},
-            }
+                new DetailDto {Id = 3}
+            ]
         };
 
         var master = new MasterWithList();
@@ -1022,11 +1022,11 @@ public class CollectionMapping
         var dto = new MasterDto
         {
             Id = 1,
-            Details = new[]
-            {
+            Details =
+            [
                 new DetailDto {Id = 2},
-                new DetailDto {Id = 3},
-            }
+                new DetailDto {Id = 3}
+            ]
         };
 
         var master = new MasterWithCollection(new List<Detail>());
@@ -1050,11 +1050,11 @@ public class CollectionMapping
         var dto = new MasterDto
         {
             Id = 1,
-            Details = new[]
-            {
+            Details =
+            [
                 new DetailDto {Id = 2},
-                new DetailDto {Id = 3},
-            }
+                new DetailDto {Id = 3}
+            ]
         };
 
         var master = config.CreateMapper().Map<MasterDto, MasterWithNoExistingCollection>(dto);
@@ -1075,11 +1075,11 @@ public class CollectionMapping
         var dto = new MasterDto
         {
             Id = 1,
-            Details = new[]
-            {
+            Details =
+            [
                 new DetailDto {Id = 2},
-                new DetailDto {Id = 3},
-            }
+                new DetailDto {Id = 3}
+            ]
         };
 
         var master = new MasterWithList();

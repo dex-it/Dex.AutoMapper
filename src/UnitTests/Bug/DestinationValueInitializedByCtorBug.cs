@@ -7,7 +7,7 @@ public class DestinationValueInitializedByCtorBug : AutoMapperSpecBase
         public ItemToMapDto()
         {
             /* Remove the line below and the mapping works correctly*/
-            this.Tag = new TagDto() { Name = Guid.NewGuid().ToString() };
+            Tag = new TagDto() { Name = Guid.NewGuid().ToString() };
         }
         public string Name { get; set; }
         public TagDto Tag { get; set; }
@@ -39,7 +39,7 @@ public class DestinationValueInitializedByCtorBug : AutoMapperSpecBase
     {
         var tag = new Tag();
 
-        List<ItemToMap> entities = new List<ItemToMap>();
+        List<ItemToMap> entities = [];
 
         for (int i = 0; i < 10; i++)
         {

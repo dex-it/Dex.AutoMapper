@@ -3,7 +3,7 @@
 public class TargetISet : AutoMapperSpecBase
 {
     Destination _destination;
-    string[] _items = new[] { "one", "two", "three" };
+    string[] _items = ["one", "two", "three"];
 
     public class Source
     {

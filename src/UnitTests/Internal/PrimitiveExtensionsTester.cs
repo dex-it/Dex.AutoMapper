@@ -26,7 +26,7 @@ public class PrimitiveExtensionsTester
     {
         Expression<Func<DateTime, DayOfWeek>> e = x => x.Date.AddDays(1).Date.AddHours(2).AddMinutes(2).Date.DayOfWeek;
         var chain = e.GetMembersChain().Select(m => m.Name).ToArray();
-        chain.ShouldBe(new[] { "Date", "AddDays", "Date", "AddHours", "AddMinutes", "Date", "DayOfWeek" });
+        chain.ShouldBe(["Date", "AddDays", "Date", "AddHours", "AddMinutes", "Date", "DayOfWeek"]);
     }
     [Fact]
     public void IsMemberPath()

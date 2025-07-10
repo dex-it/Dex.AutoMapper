@@ -116,7 +116,7 @@ namespace AutoMapper.UnitTests
 
             public class Destination
             {
-                public System.Collections.Generic.IDictionary<string, DestinationValue> Values { get; set; }
+                public IDictionary<string, DestinationValue> Values { get; set; }
             }
 
             public class DestinationValue
@@ -160,12 +160,12 @@ namespace AutoMapper.UnitTests
 
             public class Foo
             {
-                public System.Collections.Generic.IDictionary<string, Foo> Bar { get; set; }
+                public IDictionary<string, Foo> Bar { get; set; }
             }
 
             public class FooDto
             {
-                public System.Collections.Generic.IDictionary<string, FooDto> Bar { get; set; }
+                public IDictionary<string, FooDto> Bar { get; set; }
             }
 
             protected override MapperConfiguration CreateConfiguration() => new(cfg =>
@@ -199,16 +199,16 @@ namespace AutoMapper.UnitTests
 
         public class When_mapping_to_a_generic_dictionary_that_does_not_use_keyvaluepairs : AutoMapperSpecBase
         {
-            private System.Collections.Generic.IDictionary<string, string> _dest;
+            private IDictionary<string, string> _dest;
 
             public class SourceDto
             {
-                public System.Collections.Generic.IDictionary<string, string> Items { get; set; }
+                public IDictionary<string, string> Items { get; set; }
             }
 
             public class DestDto
             {
-                public System.Collections.Generic.IDictionary<string, string> Items { get; set; }
+                public IDictionary<string, string> Items { get; set; }
             }
 
             protected override MapperConfiguration CreateConfiguration() => new(cfg =>
@@ -230,7 +230,7 @@ namespace AutoMapper.UnitTests
                 };
 
 
-                _dest = Mapper.Map<System.Collections.Generic.IDictionary<string, string>, System.Collections.Generic.IDictionary<string, string>>(source.Items);
+                _dest = Mapper.Map<IDictionary<string, string>, IDictionary<string, string>>(source.Items);
             }
 
             [Fact]
@@ -249,9 +249,9 @@ namespace AutoMapper.UnitTests
             // This behaviour is demonstrated by NHibernate's PersistentGenericMap
             // (which wraps a nongeneric PersistentMap).
             public class GenericWrappedDictionary<TKey, TValue> :
-                System.Collections.Generic.IDictionary<TKey, TValue>, System.Collections.IDictionary
+                IDictionary<TKey, TValue>, IDictionary
             {
-                System.Collections.IDictionary inner = new Dictionary<TKey, TValue>();
+                IDictionary inner = new Dictionary<TKey, TValue>();
 
                 public void Add(TKey key, TValue value)
                 {
@@ -350,9 +350,9 @@ namespace AutoMapper.UnitTests
                     throw new NotImplementedException();
                 }
 
-                IDictionaryEnumerator System.Collections.IDictionary.GetEnumerator()
+                IDictionaryEnumerator IDictionary.GetEnumerator()
                 {
-                    return ((System.Collections.IDictionary)inner).GetEnumerator();
+                    return ((IDictionary)inner).GetEnumerator();
                 }
 
                 public bool IsFixedSize
@@ -360,7 +360,7 @@ namespace AutoMapper.UnitTests
                     get { throw new NotImplementedException(); }
                 }
 
-                ICollection System.Collections.IDictionary.Keys
+                ICollection IDictionary.Keys
                 {
                     get { return inner.Keys; }
                 }
@@ -370,7 +370,7 @@ namespace AutoMapper.UnitTests
                     throw new NotImplementedException();
                 }
 
-                ICollection System.Collections.IDictionary.Values
+                ICollection IDictionary.Values
                 {
                     get { return inner.Values; }
                 }

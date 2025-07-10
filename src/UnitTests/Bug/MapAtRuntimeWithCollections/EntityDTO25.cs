@@ -4,7 +4,7 @@ public class EntityDTO25 : BaseEntity
 {
     public EntityDTO25()
     {
-        this.Entities19 = new List<EntityDTO19>();
+        Entities19 = new List<EntityDTO19>();
     }
 
     public ICollection<EntityDTO19> Entities19 { get; set; }

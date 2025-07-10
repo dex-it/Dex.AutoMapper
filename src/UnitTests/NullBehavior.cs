@@ -478,7 +478,7 @@ public class When_mapping_a_model_with_null_items : AutoMapperSpecBase
     {
         public int[] GetItems()
         {
-            return new[] { 0, 1, 2, 3 };
+            return [0, 1, 2, 3];
         }
 
         public int Something { get; set; }
@@ -563,7 +563,7 @@ public class When_overriding_null_behavior_with_null_source_items : AutoMapperSp
     {
         public int[] GetItems()
         {
-            return new[] { 0, 1, 2, 3 };
+            return [0, 1, 2, 3];
         }
 
         public int Something { get; set; }
@@ -655,7 +655,7 @@ public class When_overriding_null_behavior_in_sub_profile : AutoMapperSpecBase
     {
         public int[] GetItems()
         {
-            return new[] { 0, 1, 2, 3 };
+            return [0, 1, 2, 3];
         }
 
         public int Something { get; set; }

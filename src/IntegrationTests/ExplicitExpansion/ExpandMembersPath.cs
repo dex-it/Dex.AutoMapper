@@ -59,10 +59,10 @@ public class ExpandMembersPath : IntegrationTest<ExpandMembersPath.DatabaseIniti
     private void Check(Class1DTO[] dtos)
     {
         dtos.Length.ShouldBe(3);
-        dtos.Select(d => d.IdDTO).ToArray().ShouldBe(new[] { 1, 2, 3 });
-        dtos.Select(d => d.Class2DTO.IdDTO).ToArray().ShouldBe(new[] { 1, 2, 3 });
-        dtos.Select(d => d.Class2DTO.Class3DTO.IdDTO).ToArray().ShouldBe(new[] { 1, 2, 3 });
-        dtos.Select(d => d.Class2DTO.Class3DTO.Class2DTO).ToArray().ShouldBe(new Class2DTO[] { null, null, null });
+        dtos.Select(d => d.IdDTO).ToArray().ShouldBe([1, 2, 3]);
+        dtos.Select(d => d.Class2DTO.IdDTO).ToArray().ShouldBe([1, 2, 3]);
+        dtos.Select(d => d.Class2DTO.Class3DTO.IdDTO).ToArray().ShouldBe([1, 2, 3]);
+        dtos.Select(d => d.Class2DTO.Class3DTO.Class2DTO).ToArray().ShouldBe([null, null, null]);
     }
 
     public class TestContext : LocalDbContext

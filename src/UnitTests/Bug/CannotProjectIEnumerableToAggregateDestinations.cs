@@ -20,7 +20,7 @@ public class CannotProjectIEnumerableToAggregateDestinations
     {
         // arrange
         var config = new MapperConfiguration(cfg => cfg.CreateProjection<DummySource, DummyDestination>());
-        var source = new DummySource() { DummyEnumerable = new[] { 1, 4, 5 } };
+        var source = new DummySource() { DummyEnumerable = [1, 4, 5]};
 
         // act
         var destination = new[] { source }.AsQueryable()

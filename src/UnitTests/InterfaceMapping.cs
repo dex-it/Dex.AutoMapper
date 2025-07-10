@@ -757,7 +757,7 @@ public class MappingToInterfacesWithPolymorphism : AutoMapperSpecBase
 
     protected override void Because_of()
     {
-        List<Base> list = new List<Base>() { new Derived() };
+        List<Base> list = [new Derived()];
         _baseDtos = Mapper.Map<IEnumerable<Base>, BaseDto[]>(list);
     }
 

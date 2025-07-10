@@ -11,7 +11,7 @@ public class ConventionMappedCollectionShouldMapBaseTypes
     {
         public Container ()
         {
-            Items = new List<ItemBase>();
+            Items = [];
         }
         public List<ItemBase> Items { get; private set; }
     }
@@ -24,7 +24,7 @@ public class ConventionMappedCollectionShouldMapBaseTypes
     {
         public ContainerDto()
         {
-            Items = new List<ItemDto>();
+            Items = [];
         }
         public List<ItemDto> Items { get; private set; }
     }
