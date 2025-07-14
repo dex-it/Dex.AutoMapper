@@ -37,7 +37,7 @@ public class ProjectEnumerableOfIntToList : IntegrationTest<ProjectEnumerableOfI
             {
                 FirstName = "Bob",
                 LastName = "Smith",
-                Items = new List<Item>(new[] { new Item(), new Item(), new Item()})
+                Items = [..new[] {new Item(), new Item(), new Item()}]
             });
 
             base.Seed(context);
@@ -55,7 +55,7 @@ public class ProjectEnumerableOfIntToList : IntegrationTest<ProjectEnumerableOfI
         using(var context = new Context())
         {
             var customer = ProjectTo<CustomerViewModel>(context.Customers).Single();
-            customer.ItemsIds.SequenceEqual(new int[] { 1, 2, 3 }).ShouldBeTrue();
+            customer.ItemsIds.SequenceEqual([1, 2, 3]).ShouldBeTrue();
         }
     }
 }

@@ -101,7 +101,7 @@ public class UseDestinationValue : AutoMapperSpecBase
     {
         var branchDto = new BranchDTO { ID = 51, Name = "B1" };
         var orgDto = new OrganizationDTO { ID = 5, Name = "O1" };
-        orgDto.BranchCollection.Models = new BranchDTO[] { branchDto };
+        orgDto.BranchCollection.Models = [branchDto];
 
         Mapper.Map<Organization>(orgDto);
     }
@@ -195,7 +195,7 @@ public class DontUseDestinationValue : NonValidatingSpecBase
     {
         var branchDto = new BranchDTO { ID = 51, Name = "B1" };
         var orgDto = new OrganizationDTO { ID = 5, Name = "O1" };
-        orgDto.BranchCollection.Models = new BranchDTO[] { branchDto };
+        orgDto.BranchCollection.Models = [branchDto];
 
         new Action(()=>Mapper.Map<Organization>(orgDto)).ShouldThrowException<AutoMapperMappingException>(
             ex=>ex.InnerException.Message.ShouldStartWith(typeof(CollectionController<Branch, short, EventArgs>) + " needs to have a constructor with 0 args or only optional args"));

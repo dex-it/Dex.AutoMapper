@@ -1,7 +1,7 @@
 ﻿namespace AutoMapper;
 [DebuggerDisplay("{DestinationExpression}")]
 [EditorBrowsable(EditorBrowsableState.Never)]
-public sealed class PathMap(LambdaExpression destinationExpression, MemberPath memberPath, TypeMap typeMap) 
+public sealed class PathMap(LambdaExpression destinationExpression, MemberPath memberPath, TypeMap typeMap)
     : MemberMap(typeMap, memberPath.Last.GetMemberType())
 {
     public PathMap(PathMap pathMap, TypeMap typeMap, IncludedMember includedMember) : this(pathMap.DestinationExpression, pathMap.MemberPath, typeMap)

@@ -27,7 +27,9 @@ public class InMemoryMapObjectPropertyFromSubQuery : AutoMapperSpecBase
     [Fact]
     public void Should_cache_the_subquery()
     {
-        var products = new[] { new Product { Id = 1, ECommercePublished = true, Articles = new[] { new Article { Id = 1, IsDefault = true, NationId = 1, ProductId = 1 } } } }.AsQueryable();
+        var products = new[] { new Product { Id = 1, ECommercePublished = true, Articles = [new Article { Id = 1, IsDefault = true, NationId = 1, ProductId = 1 }
+            ]
+        } }.AsQueryable();
         var projection = products.ProjectTo<ProductModel>(Configuration);
         var productModel = projection.First();
         productModel.Price.RegionId.ShouldBe((short)1);

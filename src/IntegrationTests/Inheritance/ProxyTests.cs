@@ -40,7 +40,7 @@ public class ProxyTests : IAsyncLifetime
         public DbSet<TrainingContent> TrainingContents { get; set; }
     }
 
-    public class TrainingCourse
+    public sealed class TrainingCourse
     {
         public TrainingCourse()
         {
@@ -57,7 +57,7 @@ public class ProxyTests : IAsyncLifetime
 
         public string CourseName { get; set; }
 
-        public virtual ICollection<TrainingContent> Content { get; set; }
+        public ICollection<TrainingContent> Content { get; set; }
     }
 
     public class TrainingContent
@@ -103,12 +103,12 @@ public class ProxyTests : IAsyncLifetime
         //  public int CourseId { get; set; }
     }
 
-    public async Task InitializeAsync()
+    public async ValueTask InitializeAsync()
     {
         var initializer = new DatabaseInitializer();
 
         await initializer.Migrate();
     }
 
-    public Task DisposeAsync() => Task.CompletedTask;
+    public ValueTask DisposeAsync() => ValueTask.CompletedTask;
 }

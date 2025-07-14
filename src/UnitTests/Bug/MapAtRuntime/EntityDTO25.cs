@@ -4,7 +4,7 @@ public class EntityDTO25 : BaseEntity
 {
     public EntityDTO25()
     {
-        this.Entities19 = new EntityDTO19();
+        Entities19 = new EntityDTO19();
     }
 
     public EntityDTO19 Entities19 { get; set; }

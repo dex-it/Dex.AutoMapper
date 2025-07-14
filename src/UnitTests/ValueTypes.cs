@@ -176,8 +176,8 @@ public class When_destination_type_is_a_nullable_value_type : AutoMapperSpecBase
 
     protected override MapperConfiguration CreateConfiguration() => new(cfg =>
     {
-        cfg.CreateMap<string, int>().ConvertUsing((string s) => System.Convert.ToInt32(s));
-        cfg.CreateMap<string, int?>().ConvertUsing((string s) => (int?) System.Convert.ToInt32(s));
+        cfg.CreateMap<string, int>().ConvertUsing((string s) => Convert.ToInt32(s));
+        cfg.CreateMap<string, int?>().ConvertUsing((string s) => (int?) Convert.ToInt32(s));
         cfg.CreateMap<Source, Destination>();
     });
 
@@ -204,5 +204,5 @@ public class ValueTypeDestinationPreserveReferences : AutoMapperSpecBase
     record struct Destination(List<Destination> List);
     protected override MapperConfiguration CreateConfiguration() => new(cfg => cfg.CreateMap<Source, Destination>());
     [Fact]
-    public void ShouldWork() => Map<Destination>(new Source(new() { new Source(null) })).List.Single().List.ShouldBeEmpty();
+    public void ShouldWork() => Map<Destination>(new Source([new Source(null)])).List.Single().List.ShouldBeEmpty();
 }

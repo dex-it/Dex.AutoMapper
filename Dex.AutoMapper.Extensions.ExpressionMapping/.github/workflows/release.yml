@@ -1,0 +1,28 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Test
+      run: dotnet test --configuration Release --verbosity normal
+
+    - name: Pack and push
+      env:
+        PROJECT_NAME: AutoMapper.Extensions.ExpressionMapping
+        DEPLOY_PACKAGE_URL: https://api.nuget.org/v3/index.json
+        DEPLOY_PACKAGE_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        REPO: ${{ github.repository }}
+        REPO_OWNER: ${{ github.repository_owner }}
+      run: ./Pack_Push.ps1
+      shell: pwsh

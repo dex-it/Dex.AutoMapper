@@ -35,7 +35,7 @@ public class PropertyOnMappingShouldResolveMostSpecificType
     {
         public Container()
         {
-            Items = new List<ItemBase>();
+            Items = [];
         }
         public List<ItemBase> Items { get; private set; }
     }
@@ -44,7 +44,7 @@ public class PropertyOnMappingShouldResolveMostSpecificType
     {
         public ContainerDto()
         {
-            Items = new List<ItemDto>();
+            Items = [];
         }
         public List<ItemDto> Items { get; private set; }
     }

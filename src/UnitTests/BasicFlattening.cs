@@ -98,14 +98,14 @@ public class BasicFlattening : AutoMapperSpecBase
                                        new Foo {Name = "j2", Int32 = 12345, NullInt = 54321},
                                        new Foo {Name = "j3", Int32 = 12345, NullInt = 54321},
                                    },
-            FooArr = new[]
-                                     {
-                                         new Foo {Name = "a1"},
+            FooArr =
+            [
+                new Foo {Name = "a1"},
                                          new Foo {Name = "a2"},
-                                         new Foo {Name = "a3"},
-                                     },
-            IntArr = new[] { 1, 2, 3, 4, 5 },
-            Ints = new[] { 7, 8, 9 },
+                                         new Foo {Name = "a3"}
+            ],
+            IntArr = [1, 2, 3, 4, 5],
+            Ints = [7, 8, 9],
         });
     }
 }

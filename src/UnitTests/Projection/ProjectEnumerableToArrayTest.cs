@@ -17,8 +17,8 @@ public class ProjectEnumerableToArrayTest
     {
         var movies = 
             new List<Movie>() {
-            new Movie() { Actors = new Actor[] { new Actor() { Name = "Actor 1" }, new Actor() { Name = "Actor 2" } } },
-            new Movie() { Actors = new Actor[] { new Actor() { Name = "Actor 3" }, new Actor() { Name = "Actor 4" } } }
+            new Movie() { Actors = [new Actor() { Name = "Actor 1" }, new Actor() { Name = "Actor 2" }]},
+            new Movie() { Actors = [new Actor() { Name = "Actor 3" }, new Actor() { Name = "Actor 4" }]}
             }.AsQueryable();
 
         var mapped = movies.ProjectTo<MovieDto>(_config);

@@ -1,5 +1,3 @@
-using static AutoMapper.UnitTests.Bug.MapFromClosureBug;
-
 namespace AutoMapper.UnitTests;
 
 public class When_specifying_a_mapping_order_for_base_members : AutoMapperSpecBase
@@ -28,12 +26,12 @@ public class When_specifying_a_mapping_order_for_base_members : AutoMapperSpecBa
         {
             get
             {
-                return this.one;
+                return one;
             }
             set
             {
-                this.one = value;
-                this.Two = value;
+                one = value;
+                Two = value;
             }
         }
     }

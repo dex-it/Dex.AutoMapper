@@ -140,10 +140,10 @@ public class MappingExpression<TSource, TDestination> : MappingExpressionBase<TS
         memberOptions(expression);
         return this;
     }
-    protected override void IgnoreDestinationMember(MemberInfo property, bool ignorePaths = true) => 
+    protected override void IgnoreDestinationMember(MemberInfo property, bool ignorePaths = true) =>
         ForDestinationMember<object>(property, options => options.Ignore(ignorePaths));
     IProjectionExpression<TSource, TDestination> IProjectionExpression<TSource, TDestination>.ForMember<TMember>(Expression<Func<TDestination, TMember>> destinationMember,
-        Action<IProjectionMemberConfiguration<TSource, TDestination, TMember>> memberOptions) => 
+        Action<IProjectionMemberConfiguration<TSource, TDestination, TMember>> memberOptions) =>
         (IProjectionExpression<TSource, TDestination>)ForMember(destinationMember, memberOptions);
     IProjectionExpression<TSource, TDestination> IProjectionExpression<TSource, TDestination, IProjectionExpression<TSource, TDestination>>.AddTransform<TValue>(
         Expression<Func<TValue, TValue>> transformer) => (IProjectionExpression<TSource, TDestination>)AddTransform(transformer);

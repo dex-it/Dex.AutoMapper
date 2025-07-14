@@ -93,7 +93,7 @@ public class Dynamic_constructor_mapping : AutoMapperSpecBase
     public class ParentDTO<T>
     {
         public ChildDTO<T> First => Children[0];
-        public List<ChildDTO<T>> Children { get; set; } = new List<ChildDTO<T>>();
+        public List<ChildDTO<T>> Children { get; set; } = [];
         public int IdParent { get; set; }
     }
 
@@ -106,7 +106,7 @@ public class Dynamic_constructor_mapping : AutoMapperSpecBase
     public class ParentModel<T>
     {
         public ChildModel<T> First { get; set; }
-        public List<ChildModel<T>> Children { get; set; } = new List<ChildModel<T>>();
+        public List<ChildModel<T>> Children { get; set; } = [];
         public int IdParent { get; set; }
     }
 
@@ -158,7 +158,7 @@ public class Constructor_mapping_without_preserve_references : AutoMapperSpecBas
     public class ParentDTO
     {
         public ChildDTO First => Children[0];
-        public List<ChildDTO> Children { get; set; } = new List<ChildDTO>();
+        public List<ChildDTO> Children { get; set; } = [];
         public int IdParent { get; set; }
     }
 
@@ -171,7 +171,7 @@ public class Constructor_mapping_without_preserve_references : AutoMapperSpecBas
     public class ParentModel
     {
         public ChildModel First { get; set; }
-        public List<ChildModel> Children { get; set; } = new List<ChildModel>();
+        public List<ChildModel> Children { get; set; } = [];
         public int IdParent { get; set; }
     }
 
@@ -223,7 +223,7 @@ public class Preserve_references_with_constructor_mapping : AutoMapperSpecBase
     public class ParentDTO
     {
         public ChildDTO First => Children[0];
-        public List<ChildDTO> Children { get; set; } = new List<ChildDTO>();
+        public List<ChildDTO> Children { get; set; } = [];
         public int IdParent { get; set; }
     }
 
@@ -236,7 +236,7 @@ public class Preserve_references_with_constructor_mapping : AutoMapperSpecBase
     public class ParentModel
     {
         public ChildModel First { get; set; }
-        public List<ChildModel> Children { get; set; } = new List<ChildModel>();
+        public List<ChildModel> Children { get; set; } = [];
         public int IdParent { get; set; }
     }
 
@@ -400,14 +400,14 @@ public class When_a_constructor_with_extra_parameters_doesnt_match : AutoMapperS
 
         public PersonTarget(int age, string name)
         {
-            this.Age = age;
-            this.Name = name;
+            Age = age;
+            Name = name;
         }
 
         public PersonTarget(int age, string firstName, string lastName)
         {
-            this.Age = age;
-            this.Name = firstName + " " + lastName;
+            Age = age;
+            Name = firstName + " " + lastName;
         }
     }
 

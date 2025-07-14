@@ -87,7 +87,7 @@ public class ForAllPropertyMaps_ConvertUsing : AutoMapperSpecBase
     public enum SpecialTags { None, SendState, NotSendZeroWhenOpen }
     public class PostPutWellViewModel
     {
-        public SpecialTags[] SpecialTags { get; set; } = Array.Empty<SpecialTags>();
+        public SpecialTags[] SpecialTags { get; set; } = [];
     }
     class EnumToArray : IValueConverter<object, object>
     {

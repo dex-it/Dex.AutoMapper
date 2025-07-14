@@ -442,7 +442,7 @@ public class When_reverse_mapping_classes_with_simple_properties : AutoMapperSpe
     {
         _source.Value.ShouldBe(10);
     }
-    
+
     [Fact]
     public void Should_not_initialize_details_on_initial_mapping()
     {

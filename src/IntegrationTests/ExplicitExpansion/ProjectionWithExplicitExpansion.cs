@@ -48,7 +48,7 @@ public class ProjectionWithExplicitExpansion : IntegrationTest<ProjectionWithExp
 
     public class Context : LocalDbContext
     {
-        public List<string> Log = new List<string>();
+        public List<string> Log = [];
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -117,8 +117,8 @@ public class ProjectionWithExplicitExpansion : IntegrationTest<ProjectionWithExp
             sqlSelect.ShouldNotContain("JOIN");
             sqlSelect.ShouldNotContain(nameof(ctx.SourceInners)); dto.InnerDescFlattened.ShouldBeNull();
 
-            dto.Name.ShouldBe(_iqf.Name); sqlSelect.SqlShouldSelectColumn   (nameof(_iqf.Name)); 
-            dto.Desc.ShouldBeNull()        ; sqlSelect.SqlShouldNotSelectColumn(nameof(_iqf.Desc));  
+            dto.Name.ShouldBe(_iqf.Name); sqlSelect.SqlShouldSelectColumn   (nameof(_iqf.Name));
+            dto.Desc.ShouldBeNull()        ; sqlSelect.SqlShouldNotSelectColumn(nameof(_iqf.Desc));
         }
     }
     [Fact]
@@ -134,7 +134,7 @@ public class ProjectionWithExplicitExpansion : IntegrationTest<ProjectionWithExp
             sqlSelect.ShouldNotContain(nameof(ctx.SourceInners)); dto.InnerDescFlattened.ShouldBeNull();
 
             dto.Desc.ShouldBe(_iqf.Desc); sqlSelect.ShouldContain   (nameof(_iqf.Desc));
-            dto.Name.ShouldBeNull()        ; sqlSelect.ShouldNotContain(nameof(_iqf.Name)); 
+            dto.Name.ShouldBeNull()        ; sqlSelect.ShouldNotContain(nameof(_iqf.Name));
 
         }
     }

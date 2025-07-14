@@ -169,6 +169,6 @@ public class When_reusing_the_execution_plan_existing_destination : AutoMapperSp
         var destination = Map<Destination>(new OtherSource { Ints = ints });
         destination.Ints.ShouldBe(ints);
         destination = Map<Destination>(new Source { Ints = ints });
-        destination.Ints.ShouldBe(new[] { 1 });
+        destination.Ints.ShouldBe([1]);
     }
 }

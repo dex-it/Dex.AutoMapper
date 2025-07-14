@@ -32,7 +32,7 @@ public class ByteArrayColumns : IntegrationTest<ByteArrayColumns.DatabaseInitial
             {
                 FirstName = "Bob",
                 LastName = "Smith",
-                RowVersion = new byte[] { 1, 2, 3 }
+                RowVersion = [1, 2, 3]
             });
 
             base.Seed(context);

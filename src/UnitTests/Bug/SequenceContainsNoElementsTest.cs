@@ -10,7 +10,7 @@ public class SequenceContainsNoElementsTest : AutoMapperSpecBase
     [Fact]
     public void should_not_throw_InvalidOperationException()
     {
-        Person[] personArr = new Person[] { };
+        Person[] personArr = [];
         People people = new People(personArr);
         var pmc = Mapper.Map<People, List<PersonModel>>(people);
         pmc.ShouldNotBeNull();

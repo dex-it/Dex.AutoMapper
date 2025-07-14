@@ -96,7 +96,7 @@ public class ConfigurationFeatureTest
     public abstract class ConfigurationExpressionFeatureBase : IGlobalFeature
     {
         public int Value { get; }
-        public List<IConfigurationProvider> ConfigurationProviders { get; } = new List<IConfigurationProvider>();
+        public List<IConfigurationProvider> ConfigurationProviders { get; } = [];
 
         protected ConfigurationExpressionFeatureBase(int value)
         {

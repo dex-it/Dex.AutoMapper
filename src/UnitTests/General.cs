@@ -138,7 +138,7 @@ namespace AutoMapper.UnitTests
             {
                 public IEnumerable<int> GetSomeCoolValues()
                 {
-                    return new[] { 4, 5, 6 };
+                    return [4, 5, 6];
                 }
             }
 
@@ -219,7 +219,7 @@ namespace AutoMapper.UnitTests
 
             protected override void Because_of()
             {
-                _model = new[] {new ModelObject {SomeValue = "First"}, new ModelObject {SomeValue = "Second"}};
+                _model = [new ModelObject {SomeValue = "First"}, new ModelObject {SomeValue = "Second"}];
                 _dto = (ModelDto[]) Mapper.Map(_model, typeof (ModelObject[]), typeof (ModelDto[]));
             }
 
@@ -260,7 +260,7 @@ namespace AutoMapper.UnitTests
 
             protected override void Because_of()
             {
-                _model = new List<ModelObject> {new ModelObject {SomeValue = "First"}, new ModelObject {SomeValue = "Second"}};
+                _model = [new ModelObject {SomeValue = "First"}, new ModelObject {SomeValue = "Second"}];
                 _dto = (ModelDto[]) Mapper.Map(_model, typeof (List<ModelObject>), typeof (ModelDto[]));
             }
 

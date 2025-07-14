@@ -4,11 +4,11 @@ public class EntityDTO8 : BaseEntity
 {
     public EntityDTO8()
     {
-        this.Entities20 = new EntityDTO20();
-        this.Entities22 = new EntityDTO22();
-        this.Entities3 = new EntityDTO3();
-        this.Entities11 = new EntityDTO11();
-        this.Entities17 = new EntityDTO17();
+        Entities20 = new EntityDTO20();
+        Entities22 = new EntityDTO22();
+        Entities3 = new EntityDTO3();
+        Entities11 = new EntityDTO11();
+        Entities17 = new EntityDTO17();
     }
 
     public EntityDTO20 Entities20 { get; set; }

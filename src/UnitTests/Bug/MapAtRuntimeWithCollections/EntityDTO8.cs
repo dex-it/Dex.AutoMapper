@@ -4,11 +4,11 @@ public class EntityDTO8 : BaseEntity
 {
     public EntityDTO8()
     {
-        this.Entities20 = new List<EntityDTO20>();
-        this.Entities22 = new List<EntityDTO22>();
-        this.Entities3 = new List<EntityDTO3>();
-        this.Entities11 = new List<EntityDTO11>();
-        this.Entities17 = new List<EntityDTO17>();
+        Entities20 = new List<EntityDTO20>();
+        Entities22 = new List<EntityDTO22>();
+        Entities3 = new List<EntityDTO3>();
+        Entities11 = new List<EntityDTO11>();
+        Entities17 = new List<EntityDTO17>();
     }
 
     public ICollection<EntityDTO20> Entities20 { get; set; }

@@ -36,7 +36,7 @@
                         o.Condition((_, srcProp, destProp) => { _c2Called = true; return srcProp != null; });
                         o.MapFrom((f, _) => f.Prop2?.Aggregate((current, next) => current | next));
                     }));
-                var src = new EnumTestSource { Prop1 = new[] { Enum1.One }, Prop2 = null };
+                var src = new EnumTestSource { Prop1 = [Enum1.One], Prop2 = null };
                 var dest = config.CreateMapper().Map<EnumTestDest>(src); // will throw
                 _c1Called.ShouldBeTrue();
                 _c2Called.ShouldBeTrue();

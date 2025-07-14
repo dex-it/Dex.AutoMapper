@@ -6,7 +6,7 @@ public class ProjectToAbstractTypeWithInheritance : IntegrationTest<ProjectToAbs
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public virtual List<Step> Steps { get; set; } = new();
+        public virtual List<Step> Steps { get; set; } = [];
     }
     public abstract class Step
     {
@@ -30,7 +30,7 @@ public class ProjectToAbstractTypeWithInheritance : IntegrationTest<ProjectToAbs
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<StepModel> Steps { get; set; } = new();
+        public List<StepModel> Steps { get; set; } = [];
     }
     public abstract class StepModel
     {
@@ -100,8 +100,8 @@ public class ProjectToAbstractTypeWithInheritance : IntegrationTest<ProjectToAbs
             context.StepGroups.Add(new StepGroup
             {
                 Name = "StepGroup",
-                Steps = new List<Step>
-                {
+                Steps =
+                [
                     new InstructionStep
                     {
                         Name = "InstructionStep",
@@ -113,11 +113,12 @@ public class ProjectToAbstractTypeWithInheritance : IntegrationTest<ProjectToAbs
                             }
                         }
                     },
+
                     new CheckingStep
                     {
                         Name = "CheckingStep"
                     }
-                }
+                ]
             });
 
             base.Seed(context);
